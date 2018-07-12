@@ -1,7 +1,7 @@
 <li class="dropdown dropdown-user">
     <a class="dropdown-toggle" data-toggle="dropdown">
         <img src="/images/users/trungvu.png" alt="">
-        <span>Trung Vu</span>
+        <span>{{Auth::user() -> getName()}}</span>
         <i class="caret"></i>
     </a>
 
@@ -12,6 +12,6 @@
                         class="icon-comment-discussion"></i> Messages</a></li>
         <li class="divider"></li>
         <li><a href="#"><i class="icon-cog5"></i> Account settings</a></li>
-        <li><a href="#"><i class="icon-switch2"></i> Logout</a></li>
+        <li><a href="{{route('auth.signout')}}"><i class=" icon-switch2"></i> Logout</a></li>
     </ul>
 </li>
