@@ -1,20 +1,18 @@
 language: php
 
-addons:
-  hosts:
-    - travis.dev
+php:
+  - 7.1.16
 
 services:
   - mysql
 
-php:
-  - 7.1.16
-
 before_script:
+  - mysql -e 'CREATE DATABASE travis_test;'
   - cp .env.travis .env
-  - mysql -e 'create database travis;'
+  - composer self-update
   - composer install --no-interaction
   - php artisan key:generate
-  - php artisan migrate:refresh --seed
+  - php artisan migrate
 
-script: ./vendor/bin/phpunit
+script:
+  - vendor/bin/phpunit
