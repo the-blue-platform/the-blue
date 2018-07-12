@@ -46,3 +46,12 @@ Route::get('/signout', [
     'uses' => 'Auth\SignoutController@signout',
     'as' => 'auth.signout',
 ]);
+
+/**
+ * Localization
+ */
+
+Route::get('{locale}', function ($locale) {
+    Session::put('locale', $locale);
+    return redirect()->back();
+});

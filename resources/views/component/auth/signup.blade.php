@@ -109,9 +109,8 @@
 @section('content')
     <div class="signup-form">
         <form action="{{route('auth.signup')}}" method="post">
-            <h2>Register</h2>
-            <p class="hint-text">The information platform focused on Asia for business and industry analysis
-                professionals.</p>
+            <h2>{{ trans('signup.title') }}</h2>
+            <p class="hint-text">{{ trans('signup.message') }}</p>
             <div class="form-group">
                 <div class="row">
                     <div class="col-xs-6 {{$errors -> has('first_name') ? 'has-error' : ''}}"><input type="text"
