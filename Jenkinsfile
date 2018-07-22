@@ -3,7 +3,7 @@ node {
 
     stage('Build') {
         checkout scm
-        sh 'pwd && ls -la && /usr/local/bin/composer install'
+        sh 'pwd && composer install'
         docker.build("chariot9/the-blue-server")
     }
 
