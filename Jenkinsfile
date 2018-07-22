@@ -3,13 +3,13 @@ node {
 
     stage('Build') {
         checkout scm
-        sh 'pwd && composer install'
+        sh 'pwd && php --version && /usr/local/bin/composer --version && /usr/local/bin/composer install'
         docker.build("chariot9/the-blue-server")
     }
 
     stage('Test') {
         docker.image('chariot9/the-blue-server').inside {
-            sh 'php --version'
+            sh '/usr/bin/php --version'
             sh 'cd /var/www/html && ./vendor/bin/phpunit --testsuite Unit'
         }
     }
