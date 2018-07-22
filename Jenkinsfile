@@ -4,7 +4,7 @@ node {
     stage('Build') {
         checkout scm
         sh 'pwd && php --version && /usr/local/bin/composer --version && /usr/local/bin/composer install'
-        docker.build("chariot9/the-blue-server")
+        /usr/local/bin/docker.build("chariot9/the-blue-server")
     }
 
     stage('Test') {
