@@ -9,7 +9,7 @@
         <div class="content-wrapper">
             {{--@include('contents.setting')--}}
             <div class="content">
-                {{--            @include('contents.headline')--}}
+                @include('component.container.content.headline')
             </div>
         </div>
     </div>
