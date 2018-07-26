@@ -306,29 +306,25 @@
                                                             <div class="mini-cart">
                                                                 <ul class="product-list-widget">
                                                                     <li class="mini-cart-item">
-                                                                        <a href="product.html" class="remove"><i
+                                                                        <a href="#" class="remove"><i
                                                                                     class="remove-ic-1"></i></a>
                                                                         <figure class="product-img">
-                                                                            <a href="product.html"><img
-                                                                                        src="https://s3.amazonaws.com/weblionmedia-spectr/img/75x58/1.jpg"
+                                                                            <a href="#"><img
+                                                                                        src="{{"/images/supplier/". $supplier -> avatar}}"
                                                                                         height="58" width="75"
                                                                                         alt="Spectr News Theme"></a>
                                                                         </figure>
                                                                         <div class="product-title"><a
-                                                                                    href="product.html">But I must
-                                                                                explain</a></div>
-                                                                        1 x
-                                                                        <div class="product-price">$125.00</div>
+                                                                                    href="#"><strong>{{$supplier -> name}}</strong></a>
+                                                                        </div>
+                                                                        <div class="product-price">{{$supplier ->url}}</div>
                                                                     </li>
                                                                 </ul>
-                                                                <div class="total">Subtotal: <span
-                                                                            class="amount">$125</span></div>
-                                                                <div class="buttons">
-                                                                    <a href="product.html#" class="btn-5"><i
-                                                                                class="cart-ic-light"></i> view cart</a>
-                                                                    <a href="product.html#" class="btn-5"><i
-                                                                                class="cart-ic-light"></i> chechout</a>
-                                                                </div>
+                                                                <div class="total">{{$supplier ->description}}</div>
+                                                                {{--<div class="buttons">--}}
+                                                                {{--<a href="#" class="btn-5"><i--}}
+                                                                {{--class="cart-ic-light"></i> Subscribe</a>--}}
+                                                                {{--</div>--}}
                                                             </div>
                                                         </div>
                                                     </div>
@@ -337,11 +333,11 @@
                                             <div class="latest-products-widget">
                                                 <div class="pst-block">
                                                     <div class="pst-block-head">
-                                                        <h2 class="title-4"><strong>Latest</strong> Products</h2>
+                                                        <h2 class="title-4"><strong>Latest News</strong></h2>
                                                     </div>
                                                     <div class="js-trend-pst-slider">
                                                         <div>
-                                                            @foreach($trending_left as $article)
+                                                            @foreach($latestNews as $article)
                                                                 <article class="post post-tp-3">
                                                                     <figure>
                                                                         <a href="{{$article -> link}}"><img
@@ -357,49 +353,6 @@
                                                                     <div class="date-tp-2">{{$article -> publish_date}}</div>
                                                                 </article>
                                                             @endforeach
-                                                        </div>
-                                                        <div>
-                                                            <article class="post post-tp-3">
-                                                                <figure>
-                                                                    <a href="index.html"><img
-                                                                                src="https://s3.amazonaws.com/weblionmedia-spectr/img/126x98/2.jpg"
-                                                                                height="98" width="126"
-                                                                                alt="Spectr News Theme"
-                                                                                class="adaptive"/></a>
-                                                                </figure>
-                                                                <a href="index.html" class="category-tp-2">video</a>
-                                                                <h3 class="title-3"><a href="index.html">Duis eu arcu
-                                                                        sit amet ante</a></h3>
-                                                                <div class="date-tp-2">october 2, 2015</div>
-                                                            </article>
-                                                            <article class="post post-tp-3">
-                                                                <figure>
-                                                                    <a href="index.html"><img
-                                                                                src="https://s3.amazonaws.com/weblionmedia-spectr/img/126x98/3.jpg"
-                                                                                height="98" width="126"
-                                                                                alt="Spectr News Theme"
-                                                                                class="adaptive"/></a>
-                                                                </figure>
-                                                                <a href="index.html" class="category-tp-2">design</a>
-                                                                <h3 class="title-3"><a href="index.html">Fusce ac orci
-                                                                        sagittis mattis</a>
-                                                                </h3>
-                                                                <div class="date-tp-2">october 2, 2015</div>
-                                                            </article>
-                                                            <article class="post post-tp-3">
-                                                                <figure>
-                                                                    <a href="index.html"><img
-                                                                                src="https://s3.amazonaws.com/weblionmedia-spectr/img/126x98/1.jpg"
-                                                                                height="98" width="126"
-                                                                                alt="Spectr News Theme"
-                                                                                class="adaptive"/></a>
-                                                                </figure>
-                                                                <a href="index.html" class="category-tp-2">business</a>
-                                                                <h3 class="title-3"><a href="index.html">Mauris porta
-                                                                        quam a lorem
-                                                                        honcus</a></h3>
-                                                                <div class="date-tp-2">october 2, 2015</div>
-                                                            </article>
                                                         </div>
                                                     </div>
                                                 </div>
