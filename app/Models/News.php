@@ -24,4 +24,9 @@ class News extends Model
     {
         return $this->where('supplier_id', 3)->orderBy('publish_date', 'desc')->take(3)->get();
     }
+
+    public function getById($newsId)
+    {
+        return $this->where('news_id', $newsId)->first();
+    }
 }

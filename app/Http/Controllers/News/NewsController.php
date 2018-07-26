@@ -10,15 +10,19 @@ namespace Blue\Http\Controllers\News;
 
 
 use Blue\Http\Controllers\Controller;
+use Blue\Models\File;
 use Blue\Models\News;
 
 class NewsController extends Controller
 {
-    public function index()
+    public function index($newsId)
     {
-        $headline = new News();
+        $news = new News();
+        $article = $news->getById($newsId);
+
         return view('component.news.news')
-            ->with('headline', $headline->getHeadlineNews())
-            ->with('trending_left', $headline->getTrendingNewsLeft());;
+            ->with('article', $article)
+            ->with('content', File::get($article->supplier_id, $article->news_id))
+            ->with('trending_left', $news->getTrendingNewsLeft());
     }
 }

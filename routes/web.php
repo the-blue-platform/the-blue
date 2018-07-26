@@ -60,7 +60,7 @@ Route::get('/location/{locale}', function ($locale) {
  * News
  */
 
-Route::get('/news/{news_id}', [
+Route::get('/news/{newsId}', [
     'uses' => 'News\NewsController@index',
     'as' => 'news',
 ]);

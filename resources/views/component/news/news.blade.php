@@ -23,41 +23,9 @@
                                                         <div class="shop-product-block">
                                                             <div class="product-description">
                                                                 <div class="title-blc-3">
-                                                                    <h3 class="title-24">News title</h3>
+                                                                    <h2>{{$article -> title}}</h2>
                                                                 </div>
-                                                                <div class="width_common fck_detail">
-                                                                    <p class="Normal"> <span>Lucas Alcalde hiện l&agrave; CEO của Kegs &amp; Code, startup bia thủ c&ocirc;ng được th&agrave;nh lập v&agrave;o năm 2015. Hiện c&ocirc;ng ty cộng đồng hơn 2.300 người y&ecirc;u th&iacute;ch l&agrave;m bia tr&ecirc;n khắp thế giới. Chia sẻ về &yacute; tưởng khởi nghiệp, Lucas cho biết: ''Mọi chuyện bắt đầu khi mẻ bia ủ th&agrave;nh c&ocirc;ng đầu ti&ecirc;n của t&ocirc;i được mọi người thưởng thức v&agrave; khen ngợi. Từ đ&oacute;, t&ocirc;i c&oacute; th&ecirc;m động lực để l&agrave;m tiếp&quot;.</span></p>
-                                                                    <p class="Normal"> <span>Sản phẩm nhiều l&uacute;c kh&ocirc;ng được như mong đợi, Lucas kh&ocirc;ng bỏ cuộc m&agrave;</span><span>&nbsp;t&igrave;m đọc c&aacute;c t&agrave;i liệu hướng dẫn l&ecirc;n men. Cuối c&ugrave;ng, anh quyết định nghi&ecirc;n cứu, s&aacute;ng chế ra c&ocirc;ng thức v&agrave; quy tr&igrave;nh l&agrave;m bia của ri&ecirc;ng m&igrave;nh.&nbsp;</span></p>
-                                                                    <p class="Normal"> <span>Để ph&aacute;t triển kinh doanh, nhắm đến đối tượng c&oacute; chung sở th&iacute;ch tự l&agrave;m bia</span><span>, Alcalde bắt đầu chiến dịch k&ecirc;u gọi vốn tr&ecirc;n trang Kickstarter.&nbsp;</span><span>Sản phẩm giới thiệu l&agrave; những cuốn sổ hướng dẫn l&agrave;m bia, được ph&acirc;n loại theo từng c&ocirc;ng thức, hương vị ri&ecirc;ng, c&oacute; bảng biểu nhằm theo d&otilde;i qu&aacute; tr&igrave;nh, đo th&agrave;nh phần, nồng độ...do ch&iacute;nh anh nghi&ecirc;n cứu.&nbsp;</span></p>
-                                                                    <table align="center" border="0" cellpadding="3" cellspacing="0" class="tplCaption">
-                                                                        <tbody>
-                                                                        <tr>
-                                                                            <td> <img alt="Từ niềm đam m&ecirc; với bia, Alcalde đ&atilde; th&agrave;nh lập startup Kegs &amp; Code." data-natural-width="660" src="https://vcdn-startup.vnecdn.net/2018/07/12/bia-9493-1531382522.jpg" /></td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td> <p class="Image"> Từ niềm đam m&ecirc; với bia, Alcalde đ&atilde; th&agrave;nh lập startup Kegs &amp; Code.</p> </td>
-                                                                        </tr>
-                                                                        </tbody>
-                                                                    </table>
-                                                                    <p class="Normal"> Chiến dịch nhanh ch&oacute;ng huy động được 12.000 USD chỉ trong 5 ng&agrave;y.&nbsp;<span>Sự th&agrave;nh c&ocirc;ng của dự &aacute;n c&agrave;ng củng cố niềm tin của Alcalde về một thị trường tiềm năng để ph&aacute;t triển sản phẩm. Đ&oacute; cũng l&agrave; thời điểm anh bắt đầu c&acirc;n nhắc sẽ nghỉ việc để tập trung khởi nghiệp.</span></p>
-                                                                    <p class="Normal"> ''Nhiều người ngăn cản v&igrave; cho rằng t&ocirc;i chưa c&oacute; nền tảng kinh doanh. Thời điểm đ&oacute;, t&ocirc;i l&agrave; một kỹ sư m&aacute;y t&iacute;nh'', Lucas nhớ lại.&nbsp;<span>Để đảm bảo thu nhập, anh vẫn tiếp tục duy tr&igrave; hai c&ocirc;ng việc c&ugrave;ng l&uacute;c, vừa l&agrave;m thu&ecirc;, vừa khởi nghiệp.&nbsp;</span><span>Để tận dụng triệt để thời gian rảnh d&agrave;nh cho việc sản xuất bia, Lucas dậy l&uacute;c 3 giờ s&aacute;ng l&agrave;m việc, 7h tới chỗ l&agrave;m. Anh thậm ch&iacute; tranh thủ cả giờ nghỉ trưa để ph&aacute;t triển dự &aacute;n kinh doanh c&aacute; nh&acirc;n.&nbsp;</span></p>
-                                                                    <p class="Normal"> Thời gian biểu bận rộn, nhưng Lucas vẫn duy tr&igrave; đều đặn c&ocirc;ng việc khởi nghiệp c&aacute; nh&acirc;n.&nbsp;<span>''Nhiều người lấy l&yacute; do kh&ocirc;ng c&oacute; thời gian, nhưng khi thực sự đam m&ecirc;, bạn sẽ sẵn s&agrave;ng thức khuya dậy sớm v&igrave; n&oacute;'', Lucas nhận định</span></p>
-                                                                    <table align="center" border="0" cellpadding="3" cellspacing="0" class="tplCaption">
-                                                                        <tbody>
-                                                                        <tr>
-                                                                            <td> <img alt="Sản phẩm&nbsp;tr&ecirc;n website của&nbsp;Kegs &amp; Code." data-natural-width="660" src="https://vcdn-startup.vnecdn.net/2018/07/12/Untitled-5815-1531382522.png" /></td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td> <p class="Image"> Sản phẩm&nbsp;tr&ecirc;n website của&nbsp;Kegs &amp; Code.</p> </td>
-                                                                        </tr>
-                                                                        </tbody>
-                                                                    </table>
-                                                                    <p class="Normal"> <span>Khi t&igrave;nh h&igrave;nh kinh doanh ph&aacute;t triển, anh nhận thấy đến l&uacute;c n&ecirc;n tập trung cho startup.&nbsp;</span><span>''Mỗi s&aacute;ng đi l&agrave;m, t&ocirc;i thấy như đang bỏ lỡ điều thực sự quan trọng với m&igrave;nh'', anh n&oacute;i.&nbsp;</span><span>Thời điểm đ&oacute;, c&ocirc;ng ty bia của Lucas bắt đầu mở rộng kinh doanh, tiếp nhận th&ecirc;m đơn h&agrave;ng số lượng lớn.&nbsp;</span><span>Nhưng quyết định nghỉ việc của anh kh&ocirc;ng phải nhất thời.&nbsp;</span></p>
-                                                                    <p class="Normal"> ''Bạn n&ecirc;n chuẩn bị một quỹ dự ph&ograve;ng, &iacute;t nhất l&agrave; trong 6 th&aacute;ng trước khi t&iacute;nh đến chuyện nghỉ việc v&agrave; tự kinh doanh'', CEO chia sẻ.&nbsp;<span>Cũng theo Lucas, việc x&acirc;y dựng kế hoạch l&agrave;m việc khoa học l&agrave; cần thiết. Anh l&ecirc;n kế hoạch l&agrave;m việc cụ thể trong v&ograve;ng một năm, ph&acirc;n chia chi tiết đến từng ng&agrave;y. </span></p>
-                                                                    <p class="Normal"> <span>''Điều đ&oacute; gi&uacute;p những nh&agrave; khởi nghiệp tập trung để đạt được mục ti&ecirc;u đề ra'', anh khẳng định.&nbsp;</span></p>
-                                                                    <p class="Normal"> <span>Khi v&agrave;o trang web của Kegs &amp; Code, kh&aacute;ch h&agrave;ng sẽ thấy hiện l&ecirc;n d&ograve;ng chữ: ''Mỗi người đều c&oacute; một ước mơ. H&atilde;y biến n&oacute; th&agrave;nh hiện thực''. Lucas cho biết c&ocirc;ng ty</span><span>&nbsp;khuyến kh&iacute;ch mọi người theo đuổi đam m&ecirc;, thỏa sức s&aacute;ng tạo hương vị bia ri&ecirc;ng v&agrave; khởi nghiệp.&nbsp;</span></p>
-                                                                    <p class="Normal" style="text-align:right;"> <strong><span>Phạm V&acirc;n </span></strong><em><span>(Theo CNBC)</span></em></p>
-                                                                </div>
+                                                                {!! $content !!}
                                                             </div>
                                                         </div>
                                                     </div>

@@ -11,7 +11,7 @@
                                 <div class="slide">
                                     <article class="post post-tp-1">
                                         <figure>
-                                            <a href="{{$article -> link}}"><img
+                                            <a href="{{ route('news', ['newsId' => $article -> news_id]) }}"><img
                                                         src="https://s3.amazonaws.com/weblionmedia-spectr/img/760x471/1.jpg"
                                                         height="471" width="760" alt="Spectr News Theme"
                                                         class="adaptive"/></a>
@@ -20,7 +20,7 @@
                                             <div class="ptp-1-data">
                                                 <a href="#" class="category-tp-1">BUSINESS</a>
                                                 <h3 class="title-1"><a
-                                                            href="{{$article -> link}}">{{$article -> title}}</a></h3>
+                                                            href="{{ route('news', ['newsId' => $article -> news_id]) }}">{{$article -> title}}</a></h3>
                                                 <div class="meta-tp-1">
                                                     <div class="ptp-1-date"><a>{{$article -> publish_date}}</a>
                                                     </div>
