@@ -6,7 +6,7 @@
     </a>
 
     <ul class="dropdown-menu">
-        <li><a href="/en" class="english"><img src="/images/flags/gb.png" alt=""> {{ trans('language.english') }}</a></li>
-        <li><a href="/vn" class="deutsch"><img src="/images/flags/vn.png" alt=""> {{ trans('language.vietnamese') }}</a>
+        <li><a href="/location/en" class="english"><img src="/images/flags/gb.png" alt=""> {{ trans('language.english') }}</a></li>
+        <li><a href="/location/vn" class="deutsch"><img src="/images/flags/vn.png" alt=""> {{ trans('language.vietnamese') }}</a>
     </ul>
 </li>

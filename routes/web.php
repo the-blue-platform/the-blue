@@ -51,7 +51,16 @@ Route::get('/signout', [
  * Localization
  */
 
-Route::get('{locale}', function ($locale) {
+Route::get('/location/{locale}', function ($locale) {
     Session::put('locale', $locale);
     return redirect()->back();
 });
+
+/**
+ * News
+ */
+
+Route::get('/news/{news_id}', [
+    'uses' => 'News\NewsController@index',
+    'as' => 'news',
+]);

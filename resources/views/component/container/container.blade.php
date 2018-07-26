@@ -7,7 +7,6 @@
             </div>
         </div>
         <div class="content-wrapper">
-            {{--@include('contents.setting')--}}
             <div class="content">
                 @include('component.container.content.headline')
             </div>

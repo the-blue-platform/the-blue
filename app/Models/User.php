@@ -10,6 +10,7 @@ class User extends Authenticatable
     use Notifiable;
 
     protected $table = 'users';
+    protected $connection = 'mysql_user';
 
     protected $fillable = [
         'email', 'password', 'first_name', 'last_name', 'location',

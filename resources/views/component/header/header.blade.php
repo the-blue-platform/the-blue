@@ -2,10 +2,6 @@
     @include('component.header.logo')
 
     <div class="navbar-collapse collapse">
-        @if(Auth::user())
-            @include('component.header.search')
-        @endif
-
         <ul class="nav navbar-nav navbar-right">
             @include('component.header.language')
             @if(Auth::user())
