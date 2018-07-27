@@ -16,6 +16,7 @@
                             <div class="section">
                                 <div class="row">
                                     <div class="content">
+                                        <br>
                                         <div class="pst-block">
                                             <div class="shop">
                                                 <div class="pst-block-main">
@@ -298,6 +299,7 @@
                                         <div class="js-sidebar">
                                             <div class="cart-widget">
                                                 <div class="pst-block">
+                                                    <br>
                                                     <div class="pst-block-head">
                                                         <h2 class="title-4"><strong>Resource</strong></h2>
                                                     </div>
@@ -338,20 +340,7 @@
                                                     <div class="js-trend-pst-slider">
                                                         <div>
                                                             @foreach($latestNews as $article)
-                                                                <article class="post post-tp-3">
-                                                                    <figure>
-                                                                        <a href="{{$article -> link}}"><img
-                                                                                    src="https://s3.amazonaws.com/weblionmedia-spectr/img/126x98/1.jpg"
-                                                                                    height="98" width="126"
-                                                                                    alt="Spectr News Theme"
-                                                                                    class="adaptive"/></a>
-                                                                    </figure>
-                                                                    <a href="#" class="category-tp-2">business</a>
-                                                                    <h3 class="title-3"><a
-                                                                                href="{{$article -> link}}">{{$article -> title}}</a>
-                                                                    </h3>
-                                                                    <div class="date-tp-2">{{$article -> publish_date}}</div>
-                                                                </article>
+                                                                @include('component.news.latest-news-block')
                                                             @endforeach
                                                         </div>
                                                     </div>
