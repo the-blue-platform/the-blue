@@ -21,6 +21,11 @@ class NewsController extends Controller
         $news = new News();
         $supplier = new Supplier();
         $article = $news->getById($newsId);
+
+        if (!$article) {
+            return redirect() -> back();
+        }
+
         $latestNews = $news -> getLatestNews($article -> supplier_id);
 
         return view('component.news.news')
