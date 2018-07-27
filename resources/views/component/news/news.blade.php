@@ -33,6 +33,30 @@
                                                 </div>
                                             </div>
                                         </div>
+                                        <div class="sharing-block">
+                                            <div class="sharing-title">Like this news?</div>
+                                            <div class="post-sharing-tp-2">
+                                                <ul>
+                                                    <li class="fb">
+                                                        <a href="{{ route('news.like', ['newsId' => $article -> news_id]) }}"><i
+                                                                    class="fa li_like"></i><span
+                                                                    class="mb-pt-hide">Like</span></a>
+                                                    </li>
+                                                </ul>
+                                                <div class="comments" style="padding-left: 10px">
+                                                    <i class="li_bubble"></i>{{$comments -> count() + $subComments -> count()}}
+                                                    Comments
+                                                </div>
+                                                <div class="comments" style="padding-left: 10px">
+                                                    <i class="li_like"></i>{{$likes -> count()}}
+                                                    Likes
+                                                </div>
+                                                <div class="comments">
+                                                    <i class="li_eye"></i>{{$article -> views()}}
+                                                    Views
+                                                </div>
+                                            </div>
+                                        </div>
                                         <div class="pst-box">
                                             <div class="pst-box-head">
                                                 <div class="title-blc-1">
@@ -206,84 +230,9 @@
                                                     <li class="comment">
                                                         @include('component.comment.news-comment')
                                                     </li>
-                                                    <li class="comment">
-                                                        <article>
-                                                            <div class="comment-photo">
-                                                                <img src="https://s3.amazonaws.com/weblionmedia-spectr/img/comment-photo.png"
-                                                                     height="49" width="49" alt="Spectr News Theme">
-                                                            </div>
-                                                            <h6 class="title-20"><a href="post_template_nine.html">Albert Dowson</a></h6>
-                                                            <p>Sed ut perspiciatis unde omnis iste natus sit voluptatem
-                                                                accusantium doloremque laudanTium, totamrem aperiam,
-                                                                eaque ipsa
-                                                                quae ab illo inventore veritatis</p>
-                                                            <div class="comment-date">Yesterday in 16:00</div>
-                                                            <a href="" title="Like this">Like</a>
-                                                            <span>4 likes</span>
-                                                        </article>
-                                                        <ul class="sub-comment-list">
-                                                            <li class="comment">
-                                                                <article>
-                                                                    <div class="comment-photo">
-                                                                        <img src="https://s3.amazonaws.com/weblionmedia-spectr/img/comment-photo.png"
-                                                                             height="49" width="49"
-                                                                             alt="Spectr News Theme">
-                                                                    </div>
-                                                                    <h6 class="title-20"><a
-                                                                                href="post_template_nine.html">Jason Born</a></h6>
-                                                                    <p>Sed ut perspiciatis unde omnis iste natus sit
-                                                                        voluptatem
-                                                                        accusantium doloremque laudanTium, totamrem
-                                                                        aperiam,
-                                                                        eaque ipsa quae ab illo inventore veritatis</p>
-                                                                    <div class="comment-date">Yesterday in 16:00</div>
-                                                                    <a href="" title="Like this"><span>Like </span></a>
-                                                                    <span>4 likes</span>
-                                                                </article>
-                                                            </li>
-                                                            <li class="comment">
-                                                                <article>
-                                                                    <div class="comment-photo">
-                                                                        <img src="https://s3.amazonaws.com/weblionmedia-spectr/img/comment-photo.png"
-                                                                             height="49" width="49"
-                                                                             alt="Spectr News Theme">
-                                                                    </div>
-                                                                    <div>
-                                                                        <form role="form"
-                                                                              action=""
-                                                                              method="post">
-                                                                            <div class="form-group"><textarea
-                                                                                        placeholder="Write a comment..."
-                                                                                        class="form-control"
-                                                                                        rows="1"></textarea>
-                                                                            </div>
-                                                                            <span class="help-block"></span>
-                                                                            <button class="btn btn-default">Comment
-                                                                            </button>
-                                                                            <input type="hidden" name="_token"
-                                                                                   value="{{Session::token()}}">
-                                                                        </form>
-                                                                    </div>
-                                                                </article>
-                                                            </li>
-                                                        </ul>
-                                                    </li>
-                                                    <li class="comment">
-                                                        <article>
-                                                            <div class="comment-photo">
-                                                                <img src="https://s3.amazonaws.com/weblionmedia-spectr/img/comment-photo.png"
-                                                                     height="49" width="49" alt="Spectr News Theme">
-                                                            </div>
-                                                            <h6 class="title-20"><a href="post_template_nine.html">Jack
-                                                                    Smith</a></h6>
-                                                            <p>Sed ut perspiciatis unde omnis iste natus sit voluptatem
-                                                                accusantium doloremque laudanTium, totamrem aperiam,
-                                                                eaque ipsa
-                                                                quae ab illo inventore veritatis</p>
-                                                            <div class="comment-date">Yesterday in 16:00</div>
-                                                            <div class="reply">Reply Now</div>
-                                                        </article>
-                                                    </li>
+                                                    @foreach($comments as $comment)
+                                                        @include('component.comment.news-comment-block')
+                                                    @endforeach
                                                 </ul>
                                             </div>
                                         </div>

@@ -73,3 +73,24 @@ Route::post('/news/{newsId}/comment', [
     'as' => 'news.comment',
     'middleware' => ['auth'],
 ]);
+
+Route::post('/comment/{newsId}/{commentId}/comment', [
+    'uses' => 'Comment\CommentController@comment',
+    'as' => 'comment.comment',
+    'middleware' => ['auth'],
+]);
+
+/**
+ * Like
+ */
+Route::get('/news/{newsId}/like', [
+    'uses' => 'Like\LikeController@likeNews',
+    'as' => 'news.like',
+    'middleware' => ['auth'],
+]);
+
+Route::get('/Like/{newsId}/{commentId}/like', [
+    'uses' => 'Like\LikeController@likeComment',
+    'as' => 'comment.like',
+    'middleware' => ['auth'],
+]);

@@ -8,6 +8,7 @@
 
 namespace Blue\Models;
 
+use Blue\Models\View\View;
 use Illuminate\Database\Eloquent\Model;
 
 class News extends Model
@@ -32,7 +33,7 @@ class News extends Model
 
     public function getLatestNews($supplierID)
     {
-        return $this->where('supplier_id', $supplierID)->orderBy('publish_date', 'desc')->take(10)->get();
+        return $this->where('supplier_id', $supplierID)->orderBy('publish_date', 'desc')->take(20)->get();
     }
 
     public static function find($newsId)
@@ -42,6 +43,30 @@ class News extends Model
 
     public function comments()
     {
-        return $this->hasMany('Blue\Models\NewsComment', 'news_id');
+        $comment = new Comment();
+        return $comment->getComments($this->news_id);
+    }
+
+    public function subComments()
+    {
+        $comment = new Comment();
+        return $comment->getSubComments($this->news_id);
+    }
+
+    public function likes()
+    {
+        $like = new Like();
+        return $like->getLikes($this->news_id);
+    }
+
+    public function commentLikes()
+    {
+        $like = new Like();
+        return $like->getCommentLikes($this->news_id);
+    }
+
+    public function views()
+    {
+        return View::getViews($this->news_id);
     }
 }
