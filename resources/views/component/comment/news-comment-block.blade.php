@@ -7,9 +7,14 @@
         <h6 class="title-20"><a href="">{{$comment -> user -> getName()}}</a></h6>
         <p>{{$comment -> body}}</p>
         <div class="comment-date">{{$comment -> created_at->diffForHumans()}}</div>
-        <a href="{{ route('comment.like', ['newsId' => $article -> news_id, 'commentId' => $comment -> id]) }}"
+        <a class="like-comment"
+           data-href="{{ route('comment.like', ['newsId' => $article -> news_id, 'commentId' => $comment -> id]) }}"
+           data-id="{{$comment->id}}"
            title="Like this"><span>Like </span></a>
-        <span>{{$comment -> getLikes() -> count()}} likes</span>
+        <span>
+            <span id="like-comment-{{$comment->id}}">{{$comment -> getLikes() -> count()}}</span>
+            likes
+        </span>
     </article>
     <ul class="sub-comment-list">
         @foreach($subComments as $subComment)
@@ -25,9 +30,12 @@
                         <p>{{$subComment -> body}}</p>
                         <div class="comment-date">{{$subComment -> created_at->diffForHumans()}}
                         </div>
-                        <a href="{{ route('comment.like', ['newsId' => $article -> news_id, 'commentId' => $subComment -> id]) }}"
+                        <a class="like-comment"
+                           data-href="{{ route('comment.like', ['newsId' => $article -> news_id, 'commentId' => $subComment -> id]) }}"
+                           data-id="{{$subComment->id}}"
                            title="Like this"><span>Like </span></a>
-                        <span>{{$subComment -> getLikes() -> count()}} likes</span>
+                        <span id="like-comment-{{$subComment->id}}">{{$subComment -> getLikes() -> count()}} </span>
+                        likes
                     </article>
 
                 </li>

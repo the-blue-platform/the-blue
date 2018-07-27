@@ -52,9 +52,13 @@
     <script src="/vendor/sticky-kit/jquery.sticky-kit.js"></script>
 
     <script src="/js/main.js"></script>
+    <script src="/js/like/like.js"></script>
 </head>
 <body>
 @include('component.header.header')
 @yield('content')
+<script>
+    var token = '{{ Session::token() }}';
+</script>
 </body>
 </html>

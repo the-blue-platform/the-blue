@@ -38,9 +38,11 @@
                                             <div class="post-sharing-tp-2">
                                                 <ul>
                                                     <li class="fb">
-                                                        <a href="{{ route('news.like', ['newsId' => $article -> news_id]) }}"><i
-                                                                    class="fa li_like"></i><span
-                                                                    class="mb-pt-hide">Like</span></a>
+                                                        <a class="like"
+                                                           data-href="{{ route('news.like', ['newsId' => $article -> news_id]) }}">
+                                                            <i class="fa li_like"></i>
+                                                            <span class="mb-pt-hide">Like</span>
+                                                        </a>
                                                     </li>
                                                 </ul>
                                                 <div class="comments" style="padding-left: 10px">
@@ -48,7 +50,8 @@
                                                     Comments
                                                 </div>
                                                 <div class="comments" style="padding-left: 10px">
-                                                    <i class="li_like"></i>{{$likes -> count()}}
+                                                    <i class="li_like"></i><span
+                                                            id="likes">{{$likes -> count()}}</span>
                                                     Likes
                                                 </div>
                                                 <div class="comments">

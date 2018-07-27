@@ -29,13 +29,18 @@ class LikeController extends Controller
             'news_id' => $newsId,
         ])->user()->associate(Auth::user());
 
-        return redirect()->back();
+        $likeNum = $news->likes()->count();
 
+        return response()->json([
+            'status' => 'OK',
+            "like_num" => $likeNum
+        ]);
     }
 
     public function likeComment($newsId, $commentId)
     {
         $news = News::find($newsId);
+        $like = new Like();
 
         if (!$news) {
             return redirect()->back();
@@ -47,6 +52,9 @@ class LikeController extends Controller
             'comment_id' => $commentId,
         ])->user()->associate(Auth::user());
 
-        return redirect()->back();
+        return response()->json([
+            'status' => 'OK',
+            "comment_like" => $like->getCommentLike($commentId)->count()
+        ]);
     }
 }
