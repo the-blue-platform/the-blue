@@ -34,4 +34,14 @@ class News extends Model
     {
         return $this->where('supplier_id', $supplierID)->orderBy('publish_date', 'desc')->take(10)->get();
     }
+
+    public static function find($newsId)
+    {
+        return News::where('news_id', $newsId)->first();
+    }
+
+    public function comments()
+    {
+        return $this->hasMany('Blue\Models\NewsComment', 'news_id');
+    }
 }

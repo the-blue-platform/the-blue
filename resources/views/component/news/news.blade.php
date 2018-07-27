@@ -204,19 +204,22 @@
                                             <div class="comments">
                                                 <ul class="comment-list">
                                                     <li class="comment">
+                                                        @include('component.comment.news-comment')
+                                                    </li>
+                                                    <li class="comment">
                                                         <article>
                                                             <div class="comment-photo">
                                                                 <img src="https://s3.amazonaws.com/weblionmedia-spectr/img/comment-photo.png"
                                                                      height="49" width="49" alt="Spectr News Theme">
                                                             </div>
-                                                            <h6 class="title-20"><a href="post_template_nine.html">Albert
-                                                                    Dowson</a></h6>
+                                                            <h6 class="title-20"><a href="post_template_nine.html">Albert Dowson</a></h6>
                                                             <p>Sed ut perspiciatis unde omnis iste natus sit voluptatem
                                                                 accusantium doloremque laudanTium, totamrem aperiam,
                                                                 eaque ipsa
                                                                 quae ab illo inventore veritatis</p>
                                                             <div class="comment-date">Yesterday in 16:00</div>
-                                                            <div class="reply">Reply Now</div>
+                                                            <a href="" title="Like this">Like</a>
+                                                            <span>4 likes</span>
                                                         </article>
                                                         <ul class="sub-comment-list">
                                                             <li class="comment">
@@ -227,15 +230,15 @@
                                                                              alt="Spectr News Theme">
                                                                     </div>
                                                                     <h6 class="title-20"><a
-                                                                                href="post_template_nine.html">Jason
-                                                                            Born</a></h6>
+                                                                                href="post_template_nine.html">Jason Born</a></h6>
                                                                     <p>Sed ut perspiciatis unde omnis iste natus sit
                                                                         voluptatem
                                                                         accusantium doloremque laudanTium, totamrem
                                                                         aperiam,
                                                                         eaque ipsa quae ab illo inventore veritatis</p>
                                                                     <div class="comment-date">Yesterday in 16:00</div>
-                                                                    <div class="reply">Reply Now</div>
+                                                                    <a href="" title="Like this"><span>Like </span></a>
+                                                                    <span>4 likes</span>
                                                                 </article>
                                                             </li>
                                                             <li class="comment">
@@ -245,16 +248,22 @@
                                                                              height="49" width="49"
                                                                              alt="Spectr News Theme">
                                                                     </div>
-                                                                    <h6 class="title-20"><a
-                                                                                href="post_template_nine.html">Albert
-                                                                            Dowson</a></h6>
-                                                                    <p>Sed ut perspiciatis unde omnis iste natus sit
-                                                                        voluptatem
-                                                                        accusantium doloremque laudanTium, totamrem
-                                                                        aperiam,
-                                                                        eaque ipsa quae ab illo inventore veritatis</p>
-                                                                    <div class="comment-date">Yesterday in 16:00</div>
-                                                                    <div class="reply">Reply Now</div>
+                                                                    <div>
+                                                                        <form role="form"
+                                                                              action=""
+                                                                              method="post">
+                                                                            <div class="form-group"><textarea
+                                                                                        placeholder="Write a comment..."
+                                                                                        class="form-control"
+                                                                                        rows="1"></textarea>
+                                                                            </div>
+                                                                            <span class="help-block"></span>
+                                                                            <button class="btn btn-default">Comment
+                                                                            </button>
+                                                                            <input type="hidden" name="_token"
+                                                                                   value="{{Session::token()}}">
+                                                                        </form>
+                                                                    </div>
                                                                 </article>
                                                             </li>
                                                         </ul>
@@ -267,22 +276,6 @@
                                                             </div>
                                                             <h6 class="title-20"><a href="post_template_nine.html">Jack
                                                                     Smith</a></h6>
-                                                            <p>Sed ut perspiciatis unde omnis iste natus sit voluptatem
-                                                                accusantium doloremque laudanTium, totamrem aperiam,
-                                                                eaque ipsa
-                                                                quae ab illo inventore veritatis</p>
-                                                            <div class="comment-date">Yesterday in 16:00</div>
-                                                            <div class="reply">Reply Now</div>
-                                                        </article>
-                                                    </li>
-                                                    <li class="comment">
-                                                        <article>
-                                                            <div class="comment-photo">
-                                                                <img src="https://s3.amazonaws.com/weblionmedia-spectr/img/comment-photo.png"
-                                                                     height="49" width="49" alt="Spectr News Theme">
-                                                            </div>
-                                                            <h6 class="title-20"><a href="post_template_nine.html">Robrt
-                                                                    Green</a></h6>
                                                             <p>Sed ut perspiciatis unde omnis iste natus sit voluptatem
                                                                 accusantium doloremque laudanTium, totamrem aperiam,
                                                                 eaque ipsa

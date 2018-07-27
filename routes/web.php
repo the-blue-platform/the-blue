@@ -64,3 +64,12 @@ Route::get('/news/{newsId}', [
     'uses' => 'News\NewsController@index',
     'as' => 'news',
 ]);
+
+/**
+ * Comment
+ */
+Route::post('/news/{newsId}/comment', [
+    'uses' => 'Comment\CommentController@commentNews',
+    'as' => 'news.comment',
+    'middleware' => ['auth'],
+]);
