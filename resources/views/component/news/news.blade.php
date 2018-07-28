@@ -46,7 +46,7 @@
                                                     </li>
                                                 </ul>
                                                 <div class="comments" style="padding-left: 10px">
-                                                    <i class="li_bubble"></i>{{$comments -> count() + $subComments -> count()}}
+                                                    <i class="li_bubble"></i> <span id="views">{{$comments -> count() + $subComments -> count()}}</span>
                                                     Comments
                                                 </div>
                                                 <div class="comments" style="padding-left: 10px">
@@ -230,7 +230,7 @@
                                             </div>
                                             <div class="comments">
                                                 <ul class="comment-list">
-                                                    <li class="comment">
+                                                    <li class="comment" id="news-comment-box">
                                                         @include('component.comment.news-comment')
                                                     </li>
                                                     @foreach($comments as $comment)

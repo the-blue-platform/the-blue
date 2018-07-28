@@ -12,6 +12,7 @@ namespace Blue\Http\Controllers\Comment;
 use Blue\Http\Controllers\Controller;
 use Blue\Models\News;
 use Blue\Models\Comment;
+use Illuminate\Support\Facades\View;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -32,15 +33,14 @@ class CommentController extends Controller
             'body' => $request->input("comment"),
         ])->user()->associate(Auth::user());
 
-
-//        return response()->json([
-//            'status' => 'OK'
-//        ]);
-        return view("component.comment.news-comment-block")
-            ->with('comment', $comment)
-            ->with("subComments", [])
-            ->with("article", $news);
-
+        return response()->json([
+            "view" => View::make("component.comment.news-comment-block")
+                ->with('comment', $comment)
+                ->with("subComments", [])
+                ->with("article", $news)
+                ->render(),
+            "viewCounts" => $news -> comments() -> count() + $news -> subComments() -> count()
+        ]);
     }
 
     public function comment(Request $request, $newsId, $commentId)
@@ -51,15 +51,23 @@ class CommentController extends Controller
             return redirect()->back();
         }
 
-        Comment::create([
+        $subComment = Comment::create([
             'user_id' => Auth::user()->id,
             'news_id' => $newsId,
             'parent_id' => $commentId,
             'body' => $request->input("comment"),
         ])->user()->associate(Auth::user());
 
+//        return view("component.comment.news-subcomment-block")
+//            ->with("subComment", $subComment)
+//            ->with("article", $news);
+
         return response()->json([
-            'status' => 'OK'
+            "view" => View::make("component.comment.news-subcomment-block")
+                ->with("subComment", $subComment)
+                ->with("article", $news)
+                ->render(),
+            "viewCounts" => $news -> comments() -> count() + $news -> subComments() -> count()
         ]);
     }
 }
