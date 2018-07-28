@@ -24,10 +24,15 @@ class LikeController extends Controller
             return redirect()->back();
         }
 
-        Like::create([
-            'user_id' => Auth::user()->id,
-            'news_id' => $newsId,
-        ])->user()->associate(Auth::user());
+        if (Auth::user()->isNewsLiked($newsId)) {
+            $like = new Like();
+            $like->dislikeNews(Auth::user()->id, $newsId);
+        } else {
+            Like::create([
+                'user_id' => Auth::user()->id,
+                'news_id' => $newsId,
+            ])->user()->associate(Auth::user());
+        }
 
         $likeNum = $news->likes()->count();
 
@@ -45,12 +50,16 @@ class LikeController extends Controller
         if (!$news) {
             return redirect()->back();
         }
-
-        Like::create([
-            'user_id' => Auth::user()->id,
-            'news_id' => $newsId,
-            'comment_id' => $commentId,
-        ])->user()->associate(Auth::user());
+        if (Auth::user()->isCommentLiked($newsId, $commentId)) {
+            $like = new Like();
+            $like->dislikeComment(Auth::user()->id, $newsId, $commentId);
+        } else {
+            Like::create([
+                'user_id' => Auth::user()->id,
+                'news_id' => $newsId,
+                'comment_id' => $commentId,
+            ])->user()->associate(Auth::user());
+        }
 
         return response()->json([
             'status' => 'OK',

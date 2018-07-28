@@ -30,4 +30,10 @@ class User extends Authenticatable
         $like = new Like();
         return $like->isNewsLikedByUser($this->id, $newsId) == null ? false : true;
     }
+
+    public function isCommentLiked($newsId, $commentId)
+    {
+        $like = new Like();
+        return $like->isCommentLikedByUser($this->id, $newsId, $commentId) == null ? false : true;
+    }
 }

@@ -40,7 +40,25 @@ class Like extends Model
         return $this->where("comment_id", $commentId)->get();
     }
 
-    public function isNewsLikedByUser($userId, $newsId) {
-        return $this -> where("user_id", $userId) -> where("news_id", $newsId) -> first() ->get();
+    public function isNewsLikedByUser($userId, $newsId)
+    {
+        $likes = $this->where("user_id", $userId)->where("news_id", $newsId)->whereNull("comment_id");
+        return $likes->count() != 0 ? $likes->first()->get() : null;
+    }
+
+    public function isCommentLikedByUser($userId, $newsId, $commentId)
+    {
+        $likes = $this->where("user_id", $userId)->where("news_id", $newsId)->where("comment_id", $commentId);;
+        return $likes->count() != 0 ? $likes->first()->get() : null;
+    }
+
+    public function dislikeNews($userId, $newsId)
+    {
+        $this->where("user_id", $userId)->where("news_id", $newsId)->whereNull("comment_id")->delete();
+    }
+
+    public function dislikeComment($userId, $newsId, $commentId)
+    {
+        $this->where("user_id", $userId)->where("news_id", $newsId)->where("comment_id", $commentId)->delete();
     }
 }

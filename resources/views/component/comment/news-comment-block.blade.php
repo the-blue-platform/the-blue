@@ -7,10 +7,17 @@
         <h6 class="title-20"><a href="">{{$comment -> user -> getName()}}</a></h6>
         <p>{{$comment -> body}}</p>
         <div class="comment-date">{{$comment -> created_at->diffForHumans()}}</div>
-        <a class="like-comment"
-           data-href="{{ route('comment.like', ['newsId' => $article -> news_id, 'commentId' => $comment -> id]) }}"
-           data-id="{{$comment->id}}"
-           title="Like this"><span>Like </span></a>
+        @if(!Auth::user() -> isCommentLiked($article -> news_id, $comment->id))
+            <a class="like-comment"
+               data-href="{{ route('comment.like', ['newsId' => $article -> news_id, 'commentId' => $comment -> id]) }}"
+               data-id="{{$comment->id}}"
+               title="Like this"><span id="like-comment-button-{{$comment->id}}">Like</span></a>
+        @else
+            <a class="like-comment"
+               data-href="{{ route('comment.like', ['newsId' => $article -> news_id, 'commentId' => $comment -> id]) }}"
+               data-id="{{$comment->id}}"
+               title="Dislike this"><span id="like-comment-button-{{$comment->id}}">Dislike</span></a>
+        @endif
         <span>
             <span id="like-comment-{{$comment->id}}">{{$comment -> getLikes() -> count()}}</span>
             likes

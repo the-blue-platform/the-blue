@@ -41,7 +41,7 @@
                                                         <li class="fb">
                                                             <a class="like"
                                                                data-href="{{ route('news.like', ['newsId' => $article -> news_id]) }}">
-                                                                <i class="fa li_like"></i>
+                                                                <i id="like-button-icon" class="fa li_like"></i>
                                                                 <span class="mb-pt-hide">Like</span>
                                                             </a>
                                                         </li>
@@ -49,7 +49,7 @@
                                                         <li class="fb">
                                                             <a class="like"
                                                                data-href="{{ route('news.like', ['newsId' => $article -> news_id]) }}">
-                                                                <i class="fa fa-thumbs-down"></i>
+                                                                <i id="like-button-icon" class="fa fa-thumbs-down"></i>
                                                                 <span class="mb-pt-hide">Dislike</span>
                                                             </a>
                                                         </li>
