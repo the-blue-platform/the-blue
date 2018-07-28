@@ -314,13 +314,6 @@ $(function() {
     // Main navigation tooltips positioning
     // -------------------------
 
-    // Left sidebar
-    $('.navigation-main > .navigation-header > i').tooltip({
-        placement: 'right',
-        container: 'body'
-    });
-
-
 
     // Collapsible functionality
     // -------------------------
@@ -612,25 +605,4 @@ $(function() {
             }
         }, 100);
     }).resize();
-
-
-
-
-    // ========================================
-    //
-    // Other code
-    //
-    // ========================================
-
-
-    // Plugins
-    // -------------------------
-
-    // Popover
-    $('[data-popup="popover"]').popover();
-
-
-    // Tooltip
-    $('[data-popup="tooltip"]').tooltip();
-
 });

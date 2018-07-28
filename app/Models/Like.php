@@ -39,4 +39,8 @@ class Like extends Model
     {
         return $this->where("comment_id", $commentId)->get();
     }
+
+    public function isNewsLikedByUser($userId, $newsId) {
+        return $this -> where("user_id", $userId) -> where("news_id", $newsId) -> first() ->get();
+    }
 }

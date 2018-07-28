@@ -37,16 +37,27 @@
                                             <div class="sharing-title">Like this news?</div>
                                             <div class="post-sharing-tp-2">
                                                 <ul>
-                                                    <li class="fb">
-                                                        <a class="like"
-                                                           data-href="{{ route('news.like', ['newsId' => $article -> news_id]) }}">
-                                                            <i class="fa li_like"></i>
-                                                            <span class="mb-pt-hide">Like</span>
-                                                        </a>
-                                                    </li>
+                                                    @if(!Auth::user() -> isNewsLiked($article -> news_id))
+                                                        <li class="fb">
+                                                            <a class="like"
+                                                               data-href="{{ route('news.like', ['newsId' => $article -> news_id]) }}">
+                                                                <i class="fa li_like"></i>
+                                                                <span class="mb-pt-hide">Like</span>
+                                                            </a>
+                                                        </li>
+                                                    @else
+                                                        <li class="fb">
+                                                            <a class="like"
+                                                               data-href="{{ route('news.like', ['newsId' => $article -> news_id]) }}">
+                                                                <i class="fa fa-thumbs-down"></i>
+                                                                <span class="mb-pt-hide">Dislike</span>
+                                                            </a>
+                                                        </li>
+                                                    @endif
                                                 </ul>
                                                 <div class="comments" style="padding-left: 10px">
-                                                    <i class="li_bubble"></i> <span id="views">{{$comments -> count() + $subComments -> count()}}</span>
+                                                    <i class="li_bubble"></i> <span
+                                                            id="views">{{$comments -> count() + $subComments -> count()}}</span>
                                                     Comments
                                                 </div>
                                                 <div class="comments" style="padding-left: 10px">

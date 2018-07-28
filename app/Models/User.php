@@ -24,4 +24,10 @@ class User extends Authenticatable
     {
         return "{$this -> first_name} {$this -> last_name}";
     }
+
+    public function isNewsLiked($newsId)
+    {
+        $like = new Like();
+        return $like->isNewsLikedByUser($this->id, $newsId) == null ? false : true;
+    }
 }

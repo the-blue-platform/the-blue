@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="/css/main.css"/>
 
     <link rel="stylesheet" href="/css/jquery-ui.css"/>
+    <link rel="stylesheet" href="/css/app.css"/>
     <link rel="stylesheet" href="/css/jquery-ui.structure.css"/>
     <link rel="stylesheet" href="/vendor/animate.css/animate.css"/>
     <link rel="stylesheet" href="/vendor/owl-carousel/owl-carousel/owl.carousel.css"/>
