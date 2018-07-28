@@ -53,6 +53,7 @@
 
     <script src="/js/main.js"></script>
     <script src="/js/like/like.js"></script>
+    <script src="/js/comment/comment.js"></script>
 </head>
 <body>
 @include('component.header.header')

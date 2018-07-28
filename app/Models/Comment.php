@@ -32,7 +32,7 @@ class Comment extends Model
 
     public function getSubComments($newsId)
     {
-        return $this->where("news_id", $newsId)->whereNotNull('parent_id')->orderBy('created_at', 'desc')->get();
+        return $this->where("news_id", $newsId)->whereNotNull('parent_id')->get();
     }
 
     public function getLikes()

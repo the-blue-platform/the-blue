@@ -20,35 +20,31 @@ class CommentController extends Controller
 
     public function commentNews(Request $request, $newsId)
     {
-
-        $this->validate($request, [
-            "comment-{$newsId}" => 'required|max:1000',
-        ], [
-            'required' => 'The comment content is required']);
-
         $news = News::find($newsId);
 
         if (!$news) {
             return redirect()->back();
         }
 
-        Comment::create([
+        $comment = Comment::create([
             'user_id' => Auth::user()->id,
             'news_id' => $newsId,
-            'body' => $request->input("comment-{$newsId}"),
+            'body' => $request->input("comment"),
         ])->user()->associate(Auth::user());
 
-        return redirect()->back();
+
+//        return response()->json([
+//            'status' => 'OK'
+//        ]);
+        return view("component.comment.news-comment-block")
+            ->with('comment', $comment)
+            ->with("subComments", [])
+            ->with("article", $news);
+
     }
 
     public function comment(Request $request, $newsId, $commentId)
     {
-
-        $this->validate($request, [
-            "comment-{$commentId}" => 'required|max:1000',
-        ], [
-            'required' => 'The comment content is required']);
-
         $news = News::find($newsId);
 
         if (!$news) {
@@ -59,9 +55,11 @@ class CommentController extends Controller
             'user_id' => Auth::user()->id,
             'news_id' => $newsId,
             'parent_id' => $commentId,
-            'body' => $request->input("comment-{$commentId}"),
+            'body' => $request->input("comment"),
         ])->user()->associate(Auth::user());
 
-        return redirect()->back();
+        return response()->json([
+            'status' => 'OK'
+        ]);
     }
 }
