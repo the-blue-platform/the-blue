@@ -33,7 +33,7 @@ class News extends Model
 
     public function getLatestNews($supplierID)
     {
-        return $this->where('supplier_id', $supplierID)->orderBy('publish_date', 'desc')->take(20)->get();
+        return $this->where('supplier_id', $supplierID)->where('id', '!=', $this->id)->orderBy('publish_date', 'desc')->take(20)->get();
     }
 
     public static function find($newsId)
@@ -68,5 +68,10 @@ class News extends Model
     public function views()
     {
         return View::getViews($this->news_id);
+    }
+
+    public function getRelatedNews()
+    {
+        return $this->where('tag', $this->tag)->where('id', '!=', $this->id)->orderBy('publish_date', 'desc')->take(12)->get();
     }
 }

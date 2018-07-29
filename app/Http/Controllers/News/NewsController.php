@@ -31,7 +31,8 @@ class NewsController extends Controller
         $subComments = $article->subComments();
         $likes = $article->likes();
         $commentLikes = $article->commentLikes();
-        $latestNews = $news->getLatestNews($article->supplier_id);
+        $latestNews = $article->getLatestNews($article->supplier_id);
+        $relatedNews = $article->getRelatedNews();
 
         if ($article->views() == 0) {
             View::create([
@@ -49,6 +50,7 @@ class NewsController extends Controller
             ->with('subComments', $subComments)
             ->with('likes', $likes)
             ->with('commentLikes', $commentLikes)
-            ->with('latestNews', $latestNews);
+            ->with('latestNews', $latestNews)
+            ->with('relatedNews', $relatedNews);
     }
 }

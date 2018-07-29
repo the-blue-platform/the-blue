@@ -80,156 +80,32 @@
                                             </div>
                                             <div class="pst-box-main">
                                                 <div class="pst-box-inner js-pst-block-2" data-slides="4">
-                                                    <div class="one-third">
-                                                        <article class="post post-tp-30">
-                                                            <figure>
-                                                                <a href="post_template_nine.html">
-                                                                    <img src="https://s3.amazonaws.com/weblionmedia-spectr/img/255x173/1.jpg"
-                                                                         height="173" width="255"
-                                                                         alt="Spectr News Theme"
-                                                                         class="adaptive"/>
-                                                                </a>
-                                                                <div class="ptp-30-overlay">
-                                                                    <div class="ptp-30-data">
-                                                                        <a href="post_template_nine.html">
-                                                                            <i class="li_eye"></i>187
-                                                                        </a>
-                                                                        <a href="post_template_nine.html">
-                                                                            <i class="li_bubble"></i>187
-                                                                        </a>
+                                                    @foreach($relatedNews as $news)
+                                                        <div class="one-third">
+                                                            <article class="post post-tp-30">
+                                                                <figure>
+                                                                    <a href="{{ route('news', ['newsId' => $news -> news_id]) }}">
+                                                                        <img src="{{$news->image}}"
+                                                                             height="173" width="255"
+                                                                             class="adaptive"/>
+                                                                    </a>
+                                                                    <div class="ptp-30-overlay">
+                                                                        <div class="ptp-30-data">
+                                                                            <a href="">
+                                                                                <i class="li_eye"></i>{{$news -> views()}}
+                                                                            </a>
+                                                                            <a href="">
+                                                                                <i class="li_bubble"></i>{{$news ->comments() -> count() + $news -> subComments() -> count()}}
+                                                                            </a>
+                                                                        </div>
                                                                     </div>
-                                                                </div>
-                                                            </figure>
-                                                            <h3 class="title-6"><a href="post_template_nine.html">Fusce
-                                                                    ac orci
-                                                                    sagittis mattis magna ultrices</a></h3>
-                                                        </article>
-                                                    </div>
-                                                    <div class="one-third">
-                                                        <article class="post post-tp-30">
-                                                            <figure>
-                                                                <a href="post_template_nine.html">
-                                                                    <img src="https://s3.amazonaws.com/weblionmedia-spectr/img/255x173/2.jpg"
-                                                                         height="173" width="255"
-                                                                         alt="Spectr News Theme"
-                                                                         class="adaptive"/>
-                                                                </a>
-                                                                <div class="ptp-30-overlay">
-                                                                    <div class="ptp-30-data">
-                                                                        <a href="post_template_nine.html">
-                                                                            <i class="li_eye"></i>187
-                                                                        </a>
-                                                                        <a href="post_template_nine.html">
-                                                                            <i class="li_bubble"></i>187
-                                                                        </a>
-                                                                    </div>
-                                                                </div>
-                                                            </figure>
-                                                            <h3 class="title-6"><a href="post_template_nine.html">Fusce
-                                                                    ac orci
-                                                                    sagittis mattis magna ultrices</a></h3>
-                                                        </article>
-                                                    </div>
-                                                    <div class="one-third">
-                                                        <article class="post post-tp-30">
-                                                            <figure>
-                                                                <a href="post_template_nine.html">
-                                                                    <img src="https://s3.amazonaws.com/weblionmedia-spectr/img/255x173/3.jpg"
-                                                                         height="173" width="255"
-                                                                         alt="Spectr News Theme"
-                                                                         class="adaptive"/>
-                                                                </a>
-                                                                <div class="ptp-30-overlay">
-                                                                    <div class="ptp-30-data">
-                                                                        <a href="post_template_nine.html">
-                                                                            <i class="li_eye"></i>187
-                                                                        </a>
-                                                                        <a href="post_template_nine.html">
-                                                                            <i class="li_bubble"></i>187
-                                                                        </a>
-                                                                    </div>
-                                                                </div>
-                                                            </figure>
-                                                            <h3 class="title-6"><a href="post_template_nine.html">Fusce
-                                                                    ac orci
-                                                                    sagittis mattis magna ultrices</a></h3>
-                                                        </article>
-                                                    </div>
-                                                    <div class="one-third">
-                                                        <article class="post post-tp-30">
-                                                            <figure>
-                                                                <a href="post_template_nine.html">
-                                                                    <img src="https://s3.amazonaws.com/weblionmedia-spectr/img/255x173/4.jpg"
-                                                                         height="173" width="255"
-                                                                         alt="Spectr News Theme"
-                                                                         class="adaptive"/>
-                                                                </a>
-                                                                <div class="ptp-30-overlay">
-                                                                    <div class="ptp-30-data">
-                                                                        <a href="post_template_nine.html">
-                                                                            <i class="li_eye"></i>187
-                                                                        </a>
-                                                                        <a href="post_template_nine.html">
-                                                                            <i class="li_bubble"></i>187
-                                                                        </a>
-                                                                    </div>
-                                                                </div>
-                                                            </figure>
-                                                            <h3 class="title-6"><a href="post_template_nine.html">Fusce
-                                                                    ac orci
-                                                                    sagittis mattis magna ultrices</a></h3>
-                                                        </article>
-                                                    </div>
-                                                    <div class="one-third">
-                                                        <article class="post post-tp-30">
-                                                            <figure>
-                                                                <a href="post_template_nine.html">
-                                                                    <img src="https://s3.amazonaws.com/weblionmedia-spectr/img/255x173/2.jpg"
-                                                                         height="173" width="255"
-                                                                         alt="Spectr News Theme"
-                                                                         class="adaptive"/>
-                                                                </a>
-                                                                <div class="ptp-30-overlay">
-                                                                    <div class="ptp-30-data">
-                                                                        <a href="post_template_nine.html">
-                                                                            <i class="li_eye"></i>187
-                                                                        </a>
-                                                                        <a href="post_template_nine.html">
-                                                                            <i class="li_bubble"></i>187
-                                                                        </a>
-                                                                    </div>
-                                                                </div>
-                                                            </figure>
-                                                            <h3 class="title-6"><a href="post_template_nine.html">Fusce
-                                                                    ac orci
-                                                                    sagittis mattis magna ultrices</a></h3>
-                                                        </article>
-                                                    </div>
-                                                    <div class="one-third">
-                                                        <article class="post post-tp-30">
-                                                            <figure>
-                                                                <a href="post_template_nine.html">
-                                                                    <img src="https://s3.amazonaws.com/weblionmedia-spectr/img/255x173/3.jpg"
-                                                                         height="173" width="255"
-                                                                         alt="Spectr News Theme"
-                                                                         class="adaptive"/>
-                                                                </a>
-                                                                <div class="ptp-30-overlay">
-                                                                    <div class="ptp-30-data">
-                                                                        <a href="post_template_nine.html">
-                                                                            <i class="li_eye"></i>187
-                                                                        </a>
-                                                                        <a href="post_template_nine.html">
-                                                                            <i class="li_bubble"></i>187
-                                                                        </a>
-                                                                    </div>
-                                                                </div>
-                                                            </figure>
-                                                            <h3 class="title-6"><a href="post_template_nine.html">Fusce
-                                                                    ac orci
-                                                                    sagittis mattis magna ultrices</a></h3>
-                                                        </article>
-                                                    </div>
+                                                                </figure>
+                                                                <h3 class="title-6" style="font-size: 13px"><a
+                                                                            href="{{ route('news', ['newsId' => $news -> news_id]) }}">{{$news -> title}}</a>
+                                                                </h3>
+                                                            </article>
+                                                        </div>
+                                                    @endforeach
                                                 </div>
                                             </div>
                                         </div>
