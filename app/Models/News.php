@@ -23,7 +23,7 @@ class News extends Model
 
     public function getTrendingNewsLeft()
     {
-        return $this->where('supplier_id', 3)->orderBy('publish_date', 'desc')->take(3)->get();
+        return $this->where('supplier_id', 3)->orderBy('publish_date', 'desc')->take(10)->get();
     }
 
     public function getById($newsId)

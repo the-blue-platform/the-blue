@@ -28,47 +28,10 @@
                             </div>
                             <div class="trpst-block-main">
                                 <div class="js-trend-pst-slider">
-                                    <div>
+                                    <div style="overflow: scroll">
                                         @foreach($trending_left as $article)
                                             @include('component.news.latest-news-block')
                                         @endforeach
-                                    </div>
-                                    <div>
-                                        <article class="post post-tp-3">
-                                            <figure>
-                                                <a href="index.html"><img
-                                                            src="https://s3.amazonaws.com/weblionmedia-spectr/img/126x98/2.jpg"
-                                                            height="98" width="126" alt="Spectr News Theme"
-                                                            class="adaptive"/></a>
-                                            </figure>
-                                            <a href="index.html" class="category-tp-2">video</a>
-                                            <h3 class="title-3"><a href="index.html">Duis eu arcu sit amet ante</a></h3>
-                                            <div class="date-tp-2">october 2, 2015</div>
-                                        </article>
-                                        <article class="post post-tp-3">
-                                            <figure>
-                                                <a href="index.html"><img
-                                                            src="https://s3.amazonaws.com/weblionmedia-spectr/img/126x98/3.jpg"
-                                                            height="98" width="126" alt="Spectr News Theme"
-                                                            class="adaptive"/></a>
-                                            </figure>
-                                            <a href="index.html" class="category-tp-2">design</a>
-                                            <h3 class="title-3"><a href="index.html">Fusce ac orci sagittis mattis</a>
-                                            </h3>
-                                            <div class="date-tp-2">october 2, 2015</div>
-                                        </article>
-                                        <article class="post post-tp-3">
-                                            <figure>
-                                                <a href="index.html"><img
-                                                            src="https://s3.amazonaws.com/weblionmedia-spectr/img/126x98/1.jpg"
-                                                            height="98" width="126" alt="Spectr News Theme"
-                                                            class="adaptive"/></a>
-                                            </figure>
-                                            <a href="index.html" class="category-tp-2">business</a>
-                                            <h3 class="title-3"><a href="index.html">Mauris porta quam a lorem
-                                                    honcus</a></h3>
-                                            <div class="date-tp-2">october 2, 2015</div>
-                                        </article>
                                     </div>
                                 </div>
                             </div>

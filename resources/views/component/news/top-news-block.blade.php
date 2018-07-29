@@ -2,13 +2,13 @@
     <article class="post post-tp-1">
         <figure>
             <a href="{{ route('news', ['newsId' => $article -> news_id]) }}"><img
-                        src="https://s3.amazonaws.com/weblionmedia-spectr/img/760x471/1.jpg"
+                        src="{{$article ->image}}"
                         height="471" width="760" alt="Spectr News Theme"
                         class="adaptive"/></a>
         </figure>
         <div class="ptp-1-overlay">
             <div class="ptp-1-data">
-                <a href="#" class="category-tp-1">BUSINESS</a>
+                <a href="#" class="category-tp-1">{{$article ->tag}}</a>
                 <h3 class="title-1"><a
                             href="{{ route('news', ['newsId' => $article -> news_id]) }}">{{$article -> title}}</a>
                 </h3>

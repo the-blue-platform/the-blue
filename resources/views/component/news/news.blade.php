@@ -37,7 +37,7 @@
                                             <div class="sharing-title">Like this news?</div>
                                             <div class="post-sharing-tp-2">
                                                 <ul>
-                                                    @if(!Auth::user() -> isNewsLiked($article -> news_id))
+                                                    @if(!Auth::user() || !Auth::user() -> isNewsLiked($article -> news_id))
                                                         <li class="fb">
                                                             <a class="like"
                                                                data-href="{{ route('news.like', ['newsId' => $article -> news_id]) }}">

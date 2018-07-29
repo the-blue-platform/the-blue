@@ -20,7 +20,7 @@ class File
     {
         switch ($supplierId) {
             case 3:
-                return "/data/news/cafef/";
+                return "/data/news/vnexpress/";
                 break;
         }
     }
