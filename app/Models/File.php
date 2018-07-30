@@ -21,6 +21,12 @@ class File
         switch ($supplierId) {
             case 3:
                 return "/data/news/vnexpress/";
+            case 4:
+                return "/data/news/vnexpress_business/";
+            case 5:
+                return "/data/news/vnexpress_science/";
+            case 10:
+                return "/data/news/vtvtechnology/";
                 break;
         }
     }

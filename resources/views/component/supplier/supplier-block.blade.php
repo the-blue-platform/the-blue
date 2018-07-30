@@ -8,16 +8,14 @@
             <div class="mini-cart">
                 <ul class="product-list-widget">
                     <li class="mini-cart-item">
-                        <a href="#" class="remove"><i
-                                    class="remove-ic-1"></i></a>
                         <figure class="product-img">
                             <a href="#"><img
                                         src="{{"/images/supplier/". $supplier -> avatar}}"
-                                        height="58" width="75"
-                                        alt="Spectr News Theme"></a>
+                                        height="58" width="75">
+                            </a>
                         </figure>
                         <div class="product-title"><a
-                                    href="#"><strong>{{$supplier -> name}}</strong></a>
+                                    href="{{$supplier ->url}}"><strong>{{$supplier -> name}}</strong></a>
                         </div>
                         <div class="product-price">{{$supplier ->url}}</div>
                     </li>

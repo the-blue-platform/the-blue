@@ -18,7 +18,7 @@ class News extends Model
 
     public function getHeadlineNews()
     {
-        return $this->where('supplier_id', 3)->orderBy('publish_date', 'desc')->take(3)->get();
+        return $this->where('supplier_id', 5)->orderBy('publish_date', 'desc')->take(3)->get();
     }
 
     public function getTrendingNewsLeft()
