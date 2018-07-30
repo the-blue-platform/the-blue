@@ -10,6 +10,7 @@ namespace Blue\Http\Controllers\Supplier;
 
 
 use Blue\Http\Controllers\Controller;
+use Blue\Models\Resource\Resource;
 use Blue\Models\Supplier;
 
 class SupplierController extends Controller
@@ -17,12 +18,29 @@ class SupplierController extends Controller
     public function index($supplierId)
     {
         $supplier = new Supplier();
-        $resource = $supplier->get($supplierId);
-        if (!$resource) {
+        $resource = new Resource();
+
+        $supplier = $supplier->get($supplierId);
+        if (!$supplier) {
             return redirect()->back();
         }
 
+        $resource = $resource->getBySupplierId($supplierId);
+        $tags = $resource->getTags($resource->resource_id);
+
+        if (!$supplier) {
+            return redirect()->back();
+        }
+
+        $highlight = $resource->getHighLight(null);
+        $popular = $resource->getPopular(null);
+        $latestNews = $resource->getLatestNews(null);
         return view('component.supplier.supplier')
-            ->with("supplier", $resource);
+            ->with("supplier", $supplier)
+            ->with("tags", $tags)
+            ->with("highlight", $highlight)
+            ->with("news", $popular)
+            ->with("latestNews", $latestNews);
+
     }
 }

@@ -24,11 +24,8 @@
                                     class="li_bubble"></i><span>{{$article -> comments() -> count() + $article -> subComments() -> count()}}</span></a>
                     </div>
                 </div>
-                <a href="#" class="read-tp-1"><span>Read more</span> <span
-                            class="arr-right-light-ic"><i></i></span></a>
-                <a href="#"
-                   class="save-tp-1 pull-right"><span>Save and read later</span> <span
-                            class="arr-down-light-ic"><i></i></span></a>
+                <a href="#" class="read-tp-1"><span>Read later</span> <span
+                            class="li_note"><i></i></span></a>
             </div>
         </div>
     </article>

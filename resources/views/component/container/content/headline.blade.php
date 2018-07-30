@@ -1,7 +1,6 @@
 <div class="main">
     <div class="main-content">
-        <!-- Trending line -->
-        <@include('component.container.content.trending_line')
+        @include('component.container.content.trending_line')
         <div class="main-posts-1">
             <div class="mp-section">
                 <div class="two-thirds sm-full">
@@ -26,18 +25,12 @@
                                 <h2 class="title-4"><strong>Trending</strong> Posts</h2>
                                 <div class="js-sbr-pagination"></div>
                             </div>
-                            <div class="trpst-block-main">
-                                <div class="js-trend-pst-slider">
-                                    <div style="overflow: scroll">
-                                        @foreach($trending_left as $article)
-                                            @include('component.news.latest-news-block')
-                                        @endforeach
-                                    </div>
-                                </div>
+                            <div class="trpst-block-main" id="headline-trending-news">
+                                @include('component.news.latest-news-block')
                             </div>
                             <div class="trpst-block-foot">
-                                <a href="#"><span class="more-txt">More trending posts</span><span
-                                            class="arr-right-dark-ic"><i></i></span></a>
+                                <a href="#"><span class="more-txt"></span>
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -119,7 +112,7 @@
             <div class="trend-pst">
                 <div class="pst-block">
                     <div class="pst-block-head">
-                        <h2 class="title-4"><strong>Trending</strong> Posts</h2>
+                        <h2 class="title-4">Recommendations for you</h2>
                         <div class="filters">
                             <ul class="filters-list-1 xs-hide">
                                 <li><a href="index.html" class="active">all</a></li>
@@ -147,9 +140,9 @@
                     </div>
                     <div class="pst-block-main">
                         <div class="col-row">
-                            <div class="col-one-quarter">
+                            <div class="col-one-quarter" style="background-color: #ffffff;">
                                 <article class="post post-tp-4">
-                                    <figure>
+                                    <figure style="background-color: #ffffff;">
                                         <a href="index.html">
                                             <img src="https://s3.amazonaws.com/weblionmedia-spectr/img/260x186/1.jpg"
                                                  height="186" width="260" alt="Spectr News Theme" class="adaptive"/>
@@ -269,3 +262,5 @@
         </div>
     </div>
 </div>
+
+<script src="/js/news/headline-trending-news.js"></script>

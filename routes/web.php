@@ -65,6 +65,16 @@ Route::get('/news/{newsId}', [
     'as' => 'news',
 ]);
 
+Route::get('/update/trendingnews', [
+    'uses' => 'HomeController@getTrendingPost',
+    'as' => 'update.trendingnews',
+]);
+
+Route::get('/update/latest/{supplier_id}', [
+    'uses' => 'News\NewsController@getLatestNews',
+    'as' => 'update.latest',
+]);
+
 /**
  * Comment
  */

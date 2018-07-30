@@ -41,7 +41,8 @@
                                                         <li class="fb">
                                                             <a class="like"
                                                                data-href="{{ route('news.like', ['newsId' => $article -> news_id]) }}">
-                                                                <i id="like-button-icon" class="fa li_like"></i>
+                                                                <i id="like-button-icon" class="fa li_like"
+                                                                   style="margin-right:0"></i>
                                                                 <span class="mb-pt-hide">Like</span>
                                                             </a>
                                                         </li>
@@ -49,11 +50,20 @@
                                                         <li class="fb">
                                                             <a class="like"
                                                                data-href="{{ route('news.like', ['newsId' => $article -> news_id]) }}">
-                                                                <i id="like-button-icon" class="fa fa-thumbs-down"></i>
+                                                                <i id="like-button-icon" class="fa fa-thumbs-o-down"
+                                                                   style="margin-right:0"></i>
                                                                 <span class="mb-pt-hide">Dislike</span>
                                                             </a>
                                                         </li>
                                                     @endif
+                                                    <li class="fb">
+                                                        <a class="save"
+                                                           data-href="#">
+                                                            <i id="save-button-icon" class="fa li_note"
+                                                               style="margin-right:0"></i>
+                                                            <span class="read-later">Read later</span>
+                                                        </a>
+                                                    </li>
                                                 </ul>
                                                 <div class="comments" style="padding-left: 10px">
                                                     <i class="li_bubble"></i> <span
@@ -137,12 +147,8 @@
                                                     <div class="pst-block-head">
                                                         <h2 class="title-4"><strong>Latest News</strong></h2>
                                                     </div>
-                                                    <div class="js-trend-pst-slider">
-                                                        <div>
-                                                            @foreach($latestNews as $article)
-                                                                @include('component.news.latest-news-block')
-                                                            @endforeach
-                                                        </div>
+                                                    <div id="latest-news">
+                                                        @include('component.news.latest-news-block')
                                                     </div>
                                                 </div>
                                             </div>
@@ -157,3 +163,5 @@
         </div>
     </div>
 @stop
+
+<script src="/js/news/latest-news.js"></script>

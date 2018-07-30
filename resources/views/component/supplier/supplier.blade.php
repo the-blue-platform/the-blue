@@ -14,35 +14,8 @@
                     <div class="main">
                         <!-- Content -->
                         <div class="main-content">
-                            <!-- Page head tile -->
                             <div class="page-head-tile">
                                 <div class="container">
-                                    <div class="page-title">
-                                        <h1 class="title-16"><strong>Roman Smith</strong></h1>
-                                        <div class="filters">
-                                            <ul class="filters-list-1">
-                                                <li><a href="author.html" class="active">all</a></li>
-                                                <li><a href="author.html">web design</a></li>
-                                                <li><a href="author.html">branding</a></li>
-                                                <li><a href="author.html">design</a></li>
-                                                <li><a href="author.html">video</a></li>
-                                            </ul>
-                                            <div class="filters-more">
-                                                <div class="filters-btn js-fl-btn">
-                                                    <i class="li_settings"></i>
-                                                    <div class="filters-drop js-fl-block">
-                                                        <i class="arr"></i>
-                                                        <ul>
-                                                            <li><a href="author.html">Latest</a></li>
-                                                            <li><a href="author.html" class="active">Popular</a></li>
-                                                            <li><a href="author.html">Recent</a></li>
-                                                            <li><a href="author.html">Most comment</a></li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
                                 </div>
                             </div>
                             <!-- Page head tile END -->
@@ -52,30 +25,14 @@
                                         <div class="popular-pst">
                                             <div class="pst-block">
                                                 <div class="pst-block-head">
-                                                    <h2 class="title-4"><strong>Popular</strong> Posts</h2>
+                                                    <h2 class="title-4"><strong>Popular</strong> news</h2>
                                                     <div class="filters">
                                                         <ul class="filters-list-1 xs-hide">
-                                                            <li><a href="index.html" class="active">all</a></li>
-                                                            <li><a href="index.html">business</a></li>
-                                                            <li><a href="index.html">gadgets</a></li>
-                                                            <li><a href="index.html">design</a></li>
-                                                            <li><a href="index.html">fachion</a></li>
-                                                            <li><a href="index.html">video</a></li>
+                                                            <li><a href="" class="active">all</a></li>
+                                                            @foreach($tags as $tag)
+                                                                <li><a href="">{{$tag -> tag}}</a></li>
+                                                            @endforeach
                                                         </ul>
-                                                        <div class="filters-more">
-                                                            <div class="filters-btn js-fl-btn">
-                                                                <i class="li_settings"></i>
-                                                                <div class="filters-drop js-fl-block">
-                                                                    <i class="arr"></i>
-                                                                    <ul>
-                                                                        <li><a href="index.html">Latest</a></li>
-                                                                        <li><a href="index.html" class="active">Popular</a></li>
-                                                                        <li><a href="index.html">Recent</a></li>
-                                                                        <li><a href="index.html">Most comment</a></li>
-                                                                    </ul>
-                                                                </div>
-                                                            </div>
-                                                        </div>
                                                     </div>
                                                 </div>
                                                 <div class="pst-block-main">
@@ -83,248 +40,82 @@
                                                         <div class="col-half">
                                                             <article class="post post-tp-5">
                                                                 <figure>
-                                                                    <a href="index.html">
-                                                                        <img src="https://s3.amazonaws.com/weblionmedia-spectr/img/345x242/1.jpg" height="242" width="345" alt="Spectr News Theme" class="adaptive" />
+                                                                    <a href="{{ route('news', ['newsId' => $highlight -> news_id]) }}">
+                                                                        <img src="{{$highlight -> image}}"
+                                                                             height="242" width="345" class="adaptive"/>
                                                                     </a>
                                                                 </figure>
-                                                                <h3 class="title-5"><a href="index.html">Fusce ac orci sagittis mattis magna ultrices libero</a></h3>
+                                                                <h3 class="title-5">
+                                                                    <a href="{{ route('news', ['newsId' => $highlight -> news_id]) }}">{{$highlight -> title}}</a>
+                                                                </h3>
                                                                 <div class="meta-tp-2">
-                                                                    <div class="date"><span>october 2, 2015</span></div>
+                                                                    <div class="date">
+                                                                        <span>{{$highlight -> publish_date}}</span>
+                                                                    </div>
                                                                     <div class="category">
-                                                                        <a href="index.html"><i class="li_user"></i><span>admin</span></a>
+                                                                        <a><i class="li_eye"></i><span>125</span></a>
                                                                     </div>
                                                                 </div>
-                                                                <p class="p">Sed ut perspiciatis unde omnis iste natus sit voluptatem accusantium doloremque laudantium, totamrem aperiam, eaque ipsa quae ab illo inventore</p>
+                                                                <p class="p">{{$highlight -> content}}</p>
                                                             </article>
                                                         </div>
                                                         <div class="col-half">
-                                                            <article class="post post-tp-6">
-                                                                <figure>
-                                                                    <a href="index.html">
-                                                                        <img src="https://s3.amazonaws.com/weblionmedia-spectr/img/115x85/1.jpg" height="85" width="115" alt="Spectr News Theme" class="adaptive" />
-                                                                    </a>
-                                                                </figure>
-                                                                <h3 class="title-6"><a href="index.html">Duis eu arcu sit amet ante tristique</a></h3>
-                                                                <div class="date-tp-2">october 2, 2015</div>
-                                                            </article>
-                                                            <article class="post post-tp-6">
-                                                                <figure>
-                                                                    <a href="index.html">
-                                                                        <img src="https://s3.amazonaws.com/weblionmedia-spectr/img/115x85/2.jpg" height="85" width="115" alt="Spectr News Theme" class="adaptive" />
-                                                                    </a>
-                                                                </figure>
-                                                                <h3 class="title-6"><a href="index.html">Vivamus auctor quam nec mauris commodo</a></h3>
-                                                                <div class="date-tp-2">october 2, 2015</div>
-                                                            </article>
-                                                            <article class="post post-tp-6">
-                                                                <figure>
-                                                                    <a href="index.html">
-                                                                        <img src="https://s3.amazonaws.com/weblionmedia-spectr/img/115x85/3.jpg" height="85" width="115" alt="Spectr News Theme" class="adaptive" />
-                                                                    </a>
-                                                                </figure>
-                                                                <h3 class="title-6"><a href="index.html">Nam ut metus elementum pharetra diam sed</a></h3>
-                                                                <div class="date-tp-2">october 2, 2015</div>
-                                                            </article>
-                                                            <article class="post post-tp-6">
-                                                                <figure>
-                                                                    <a href="index.html">
-                                                                        <img src="https://s3.amazonaws.com/weblionmedia-spectr/img/115x85/4.jpg" height="85" width="115" alt="Spectr News Theme" class="adaptive" />
-                                                                    </a>
-                                                                </figure>
-                                                                <h3 class="title-6"><a href="index.html">Mauris porta quam a lorem rhoncus fringilla</a></h3>
-                                                                <div class="date-tp-2">october 2, 2015</div>
-                                                            </article>
+                                                            @foreach($news as $article)
+                                                                <article class="post post-tp-6">
+                                                                    <figure>
+                                                                        <a href="{{ route('news', ['newsId' => $article -> news_id]) }}">
+                                                                            <img src="{{$article -> image}}"
+                                                                                 height="85" width="115"
+                                                                                 class="adaptive"/>
+                                                                        </a>
+                                                                    </figure>
+                                                                    <h3 class="title-6"><a
+                                                                                href="{{ route('news', ['newsId' => $article -> news_id]) }}">{{$article->title}}</a>
+                                                                    </h3>
+                                                                    <div class="date-tp-2">{{$article -> publish_date}}</div>
+                                                                </article>
+                                                            @endforeach
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
+                                        <div class="pst-block-head">
+                                            <h2 class="title-4"><strong>Latest</strong> news</h2>
+                                        </div>
                                         <div class="page-content">
                                             <div class="posts">
-                                                <article class="post post-tp-17">
-                                                    <figure>
-                                                        <a href="author.html">
-                                                            <img src="https://s3.amazonaws.com/weblionmedia-spectr/img/223x156/4.jpg"
-                                                                 height="156" width="223" alt="Spectr News Theme"
-                                                                 class="adaptive"/>
-                                                        </a>
-                                                    </figure>
-                                                    <span class="category-tp-4">style</span>
-                                                    <h3 class="title-5"><a href="author.html">But I must explain to you
-                                                            how all this mistaken idea of denouncing pleasure</a></h3>
-                                                    <div class="meta-tp-2">
-                                                        <div class="date"><span>october 2, 2015</span></div>
-                                                        <div class="category">
-                                                            <a href="author.html"><i
-                                                                        class="li_user"></i><span>admin</span></a>
+                                                @foreach($latestNews as $article)
+                                                    <article class="post post-tp-17">
+                                                        <figure>
+                                                            <a href="{{ route('news', ['newsId' => $article -> news_id]) }}">
+                                                                <img src="{{$article ->image}}"
+                                                                     height="156" width="223" alt="Spectr News Theme"
+                                                                     class="adaptive"/>
+                                                            </a>
+                                                        </figure>
+                                                        <span class="category-tp-4">{{$article ->tag}}</span>
+                                                        <h3 class="title-5">
+                                                            <a href="{{ route('news', ['newsId' => $article -> news_id]) }}">{{$article ->title}}</a>
+                                                        </h3>
+                                                        <div class="meta-tp-2">
+                                                            <div class="date"><span>{{$article ->publish_date}}</span>
+                                                            </div>
+                                                            <div class="category">
+                                                                <a><i class="li_eye"></i><span>25</span></a>
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                    <p class="p">Sed ut perspiciatis unde omnis iste natus sit
-                                                        voluptatem accusantium dolore mque laudantium, totamrem aperiam,
-                                                        eaque ipsa quae ab illo invent</p>
-                                                </article>
-                                                <article class="post post-tp-17">
-                                                    <figure>
-                                                        <a href="author.html">
-                                                            <img src="https://s3.amazonaws.com/weblionmedia-spectr/img/223x156/5.jpg"
-                                                                 height="156" width="223" alt="Spectr News Theme"
-                                                                 class="adaptive"/>
-                                                        </a>
-                                                    </figure>
-                                                    <span class="category-tp-4">style</span>
-                                                    <h3 class="title-5"><a href="author.html">Fusce ac orci sagittis
-                                                            mattis magna</a></h3>
-                                                    <div class="meta-tp-2">
-                                                        <div class="date"><span>october 2, 2015</span></div>
-                                                        <div class="category">
-                                                            <a href="author.html"><i
-                                                                        class="li_user"></i><span>admin</span></a>
-                                                        </div>
-                                                    </div>
-                                                    <p class="p">Sed ut perspiciatis unde omnis iste natus sit
-                                                        voluptatem accusantium dolore mque laudantium, totamrem aperiam,
-                                                        eaque ipsa quae ab illo invent</p>
-                                                </article>
-                                                <article class="post post-tp-17">
-                                                    <figure>
-                                                        <a href="author.html">
-                                                            <img src="https://s3.amazonaws.com/weblionmedia-spectr/img/223x156/6.jpg"
-                                                                 height="156" width="223" alt="Spectr News Theme"
-                                                                 class="adaptive"/>
-                                                        </a>
-                                                    </figure>
-                                                    <span class="category-tp-4">style</span>
-                                                    <h3 class="title-5"><a href="author.html">But I must explain to you
-                                                            how all this mistaken idea of denouncing pleasure</a></h3>
-                                                    <div class="meta-tp-2">
-                                                        <div class="date"><span>october 2, 2015</span></div>
-                                                        <div class="category">
-                                                            <a href="author.html"><i
-                                                                        class="li_user"></i><span>admin</span></a>
-                                                        </div>
-                                                    </div>
-                                                    <p class="p">Sed ut perspiciatis unde omnis iste natus sit
-                                                        voluptatem accusantium dolore mque laudantium, totamrem aperiam,
-                                                        eaque ipsa quae ab illo invent</p>
-                                                </article>
-                                                <article class="post post-tp-17">
-                                                    <figure>
-                                                        <a href="author.html">
-                                                            <img src="https://s3.amazonaws.com/weblionmedia-spectr/img/223x156/7.jpg"
-                                                                 height="156" width="223" alt="Spectr News Theme"
-                                                                 class="adaptive"/>
-                                                        </a>
-                                                    </figure>
-                                                    <span class="category-tp-4">style</span>
-                                                    <h3 class="title-5"><a href="author.html">But I must explain to you
-                                                            how all this mistaken idea of denouncing pleasure</a></h3>
-                                                    <div class="meta-tp-2">
-                                                        <div class="date"><span>october 2, 2015</span></div>
-                                                        <div class="category">
-                                                            <a href="author.html"><i
-                                                                        class="li_user"></i><span>admin</span></a>
-                                                        </div>
-                                                    </div>
-                                                    <p class="p">Sed ut perspiciatis unde omnis iste natus sit
-                                                        voluptatem accusantium dolore mque laudantium, totamrem aperiam,
-                                                        eaque ipsa quae ab illo invent</p>
-                                                </article>
-                                                <article class="post post-tp-17">
-                                                    <figure>
-                                                        <a href="author.html">
-                                                            <img src="https://s3.amazonaws.com/weblionmedia-spectr/img/223x156/11.jpg"
-                                                                 height="156" width="223" alt="Spectr News Theme"
-                                                                 class="adaptive"/>
-                                                        </a>
-                                                    </figure>
-                                                    <span class="category-tp-4">style</span>
-                                                    <h3 class="title-5"><a href="author.html">Fusce ac orci sagittis
-                                                            mattis magna</a></h3>
-                                                    <div class="meta-tp-2">
-                                                        <div class="date"><span>october 2, 2015</span></div>
-                                                        <div class="category">
-                                                            <a href="author.html"><i
-                                                                        class="li_user"></i><span>admin</span></a>
-                                                        </div>
-                                                    </div>
-                                                    <p class="p">Sed ut perspiciatis unde omnis iste natus sit
-                                                        voluptatem accusantium dolore mque laudantium, totamrem aperiam,
-                                                        eaque ipsa quae ab illo invent</p>
-                                                </article>
-                                                <article class="post post-tp-17">
-                                                    <figure>
-                                                        <a href="author.html">
-                                                            <img src="https://s3.amazonaws.com/weblionmedia-spectr/img/223x156/9.jpg"
-                                                                 height="156" width="223" alt="Spectr News Theme"
-                                                                 class="adaptive"/>
-                                                        </a>
-                                                    </figure>
-                                                    <span class="category-tp-4">style</span>
-                                                    <h3 class="title-5"><a href="author.html">But I must explain to you
-                                                            how all this mistaken idea of denouncing pleasure</a></h3>
-                                                    <div class="meta-tp-2">
-                                                        <div class="date"><span>october 2, 2015</span></div>
-                                                        <div class="category">
-                                                            <a href="author.html"><i
-                                                                        class="li_user"></i><span>admin</span></a>
-                                                        </div>
-                                                    </div>
-                                                    <p class="p">Sed ut perspiciatis unde omnis iste natus sit
-                                                        voluptatem accusantium dolore mque laudantium, totamrem aperiam,
-                                                        eaque ipsa quae ab illo invent</p>
-                                                </article>
-                                                <article class="post post-tp-17">
-                                                    <figure>
-                                                        <a href="author.html">
-                                                            <img src="https://s3.amazonaws.com/weblionmedia-spectr/img/223x156/10.jpg"
-                                                                 height="156" width="223" alt="Spectr News Theme"
-                                                                 class="adaptive"/>
-                                                        </a>
-                                                    </figure>
-                                                    <span class="category-tp-4">style</span>
-                                                    <h3 class="title-5"><a href="author.html">But I must explain to you
-                                                            how all this mistaken idea of denouncing pleasure</a></h3>
-                                                    <div class="meta-tp-2">
-                                                        <div class="date"><span>october 2, 2015</span></div>
-                                                        <div class="category">
-                                                            <a href="author.html"><i
-                                                                        class="li_user"></i><span>admin</span></a>
-                                                        </div>
-                                                    </div>
-                                                    <p class="p">Sed ut perspiciatis unde omnis iste natus sit
-                                                        voluptatem accusantium dolore mque laudantium, totamrem aperiam,
-                                                        eaque ipsa quae ab illo invent</p>
-                                                </article>
-                                                <article class="post post-tp-17">
-                                                    <figure>
-                                                        <a href="author.html">
-                                                            <img src="https://s3.amazonaws.com/weblionmedia-spectr/img/223x156/12.jpg"
-                                                                 height="156" width="223" alt="Spectr News Theme"
-                                                                 class="adaptive"/>
-                                                        </a>
-                                                    </figure>
-                                                    <span class="category-tp-4">style</span>
-                                                    <h3 class="title-5"><a href="author.html">Fusce ac orci sagittis
-                                                            mattis magna</a></h3>
-                                                    <div class="meta-tp-2">
-                                                        <div class="date"><span>october 2, 2015</span></div>
-                                                        <div class="category">
-                                                            <a href="author.html"><i
-                                                                        class="li_user"></i><span>admin</span></a>
-                                                        </div>
-                                                    </div>
-                                                    <p class="p">Sed ut perspiciatis unde omnis iste natus sit
-                                                        voluptatem accusantium dolore mque laudantium, totamrem aperiam,
-                                                        eaque ipsa quae ab illo invent</p>
-                                                </article>
+                                                        <p class="p">{{$article ->content}}</p>
+                                                    </article>
+                                                @endforeach
                                             </div>
                                             <!-- Page nav -->
                                             <div class="page-nav">
                                                 <a href="author.html" class="pn-item">
                                                     <i class="page-nav-prev-ic"></i>
                                                 </a>
-                                                <a href="author.html" class="pn-item mb-pt-hide">1</a>
-                                                <a href="author.html" class="pn-item current mb-pt-hide">2</a>
+                                                <a href="author.html" class="pn-item current mb-pt-hide">1</a>
+                                                <a href="author.html" class="pn-item mb-pt-hide">2</a>
                                                 <a href="author.html" class="pn-item mb-pt-hide">3</a>
                                                 <span class="extend mb-pt-hide">...</span>
                                                 <a href="author.html" class="pn-item mb-pt-hide">7</a>
@@ -376,13 +167,16 @@
                                                         <div class="fs-list-block">
                                                             <ul class="fs-list">
                                                                 <li class="fs-item">
-                                                                    <a href="">Views <span class="count">25</span></a>
+                                                                    <a href="">Views <span
+                                                                                class="count">{{$supplier -> getViews()}}</span></a>
                                                                 </li>
                                                                 <li class="fs-item">
-                                                                    <a href="">Likes <span class="count">6</span></a>
+                                                                    <a href="">Likes <span
+                                                                                class="count">{{$supplier -> getLikes()}}</span></a>
                                                                 </li>
                                                                 <li class="fs-item">
-                                                                    <a href="">Comments <span class="count">25</span></a>
+                                                                    <a href="">Comments <span
+                                                                                class="count">{{$supplier -> getComments()}}</span></a>
                                                                 </li>
                                                                 <li class="fs-item">
                                                                     <a href="">Subscribes <span class="count">125</span></a>
@@ -400,21 +194,13 @@
                                                     <div class="pst-block-main">
                                                         <div class="fs-list-block">
                                                             <ul class="fs-list">
-                                                                <li class="fs-item">
-                                                                    <a href="product.html">Registered Users <span class="count">25</span></a>
-                                                                </li>
-                                                                <li class="fs-item">
-                                                                    <a href="product.html">Forums <span class="count">6</span></a>
-                                                                </li>
-                                                                <li class="fs-item">
-                                                                    <a href="product.html">Topics <span class="count">25</span></a>
-                                                                </li>
-                                                                <li class="fs-item">
-                                                                    <a href="product.html">Replies <span class="count">125</span></a>
-                                                                </li>
-                                                                <li class="fs-item">
-                                                                    <a href="product.html">Topic Tags <span class="count">35</span></a>
-                                                                </li>
+                                                                @foreach($tags as $tag)
+                                                                    <li class="fs-item">
+                                                                        <a href="">{{$tag -> tag}}
+                                                                            <span class="count">{{$tag -> getNewsCountByTag($tag -> tag)}}</span>
+                                                                        </a>
+                                                                    </li>
+                                                                @endforeach
                                                             </ul>
                                                         </div>
                                                     </div>

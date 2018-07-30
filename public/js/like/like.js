@@ -12,10 +12,10 @@ $(document).on("click", ".like", function () {
         $("#likes").text(data.like_num);
         if (type === "Like") {
             $(".mb-pt-hide").text("Dislike");
-            $("#like-button-icon").removeClass('fa li_like').addClass('fa fa-thumbs-down');
+            $("#like-button-icon").removeClass('fa li_like').addClass('fa fa-thumbs-o-down');
         } else {
             $(".mb-pt-hide").text("Like");
-            $("#like-button-icon").removeClass('fa fa-thumbs-down').addClass('fa li_like');
+            $("#like-button-icon").removeClass('fa fa-thumbs-o-down').addClass('fa li_like');
         }
     });
 });

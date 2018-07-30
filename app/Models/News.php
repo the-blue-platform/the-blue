@@ -9,7 +9,9 @@
 namespace Blue\Models;
 
 use Blue\Models\View\View;
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 
 class News extends Model
 {
@@ -18,12 +20,27 @@ class News extends Model
 
     public function getHeadlineNews()
     {
-        return $this->where('supplier_id', 5)->orderBy('publish_date', 'desc')->take(3)->get();
+        $date = new Carbon();
+        $date->subWeek();
+
+        return $this->join('view', 'view.news_id', '=', 'news.news_id')
+            ->where('publish_date', '>', $date->toDateTimeString())
+            ->orderBy("view.view", "desc")
+            ->take(3)
+            ->get();
     }
 
-    public function getTrendingNewsLeft()
+    public function getTrendingNews()
     {
-        return $this->where('supplier_id', 3)->orderBy('publish_date', 'desc')->take(10)->get();
+        $date = new Carbon();
+        $date->subWeek();
+
+        return $this->join('view', 'view.news_id', '=', 'news.news_id')
+            ->where('publish_date', '>', $date->toDateTimeString())
+            ->orderBy("view.view", "desc")
+            ->skip(3)
+            ->take(9)
+            ->get();
     }
 
     public function getById($newsId)

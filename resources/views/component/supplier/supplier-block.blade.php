@@ -3,7 +3,7 @@
     <div class="pst-block-head">
         <h2 class="title-4"><strong>Resource</strong></h2>
     </div>
-    <div class="pst-block-main">
+    <div class="pst-block-main resource" id="{{$supplier -> supplier_id}}">
         <div class="cart-products">
             <div class="mini-cart">
                 <ul class="product-list-widget">

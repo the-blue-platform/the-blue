@@ -31,7 +31,7 @@ class NewsController extends Controller
         $subComments = $article->subComments();
         $likes = $article->likes();
         $commentLikes = $article->commentLikes();
-        $latestNews = $article->getLatestNews($article->supplier_id);
+        $trending_news = $article->getLatestNews($article->supplier_id);
         $relatedNews = $article->getRelatedNews();
 
         if ($article->views() == 0) {
@@ -50,7 +50,16 @@ class NewsController extends Controller
             ->with('subComments', $subComments)
             ->with('likes', $likes)
             ->with('commentLikes', $commentLikes)
-            ->with('latestNews', $latestNews)
+            ->with('trending_news', $trending_news)
             ->with('relatedNews', $relatedNews);
+    }
+
+    public function getLatestNews($supplier_id)
+    {
+        $news = new News();
+        $trending_news = $news->getLatestNews($supplier_id);
+
+        return view('component.news.latest-news-block')
+            ->with('trending_news', $trending_news);
     }
 }
