@@ -426,6 +426,8 @@ The `sprites` mixin generates identical output to the CSS template
 
 /* line 81, D:/aartyomenko/Git/spectr/html/app/scss/_grid.scss */
 .col-half {
+  border: none;
+  background-color: #ffffff;
   float: left;
   display: block;
   margin-right: 0%;
@@ -750,9 +752,13 @@ The `sprites` mixin generates identical output to the CSS template
 
 /* line 223, D:/aartyomenko/Git/spectr/html/app/scss/_grid.scss */
 .col-row {
+  background-color: #ffffff;
   display: block;
-  margin-left: -10px;
-  margin-right: -10px; }
+  padding-top: 0px;
+  padding-bottom: 0px;
+  border: none;
+  height: 200px;
+}
   /* line 20, D:/aartyomenko/Git/spectr/html/app/vendor/bourbon/app/assets/stylesheets/addons/_clearfix.scss */
   .col-row::after {
     clear: both;
@@ -765,7 +771,7 @@ The `sprites` mixin generates identical output to the CSS template
   margin-left: auto;
   margin-right: auto;
   padding: 0 15px;
-  margin-bottom: 45px; }
+}
   /* line 20, D:/aartyomenko/Git/spectr/html/app/vendor/bourbon/app/assets/stylesheets/addons/_clearfix.scss */
   .section::after {
     clear: both;

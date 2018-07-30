@@ -94,3 +94,12 @@ Route::post('/like/{newsId}/{commentId}/like', [
     'as' => 'comment.like',
     'middleware' => ['auth'],
 ]);
+
+/**
+ * Supplier
+ */
+
+Route::get('/supplier/{newsId}', [
+    'uses' => 'Supplier\SupplierController@index',
+    'as' => 'supplier',
+]);

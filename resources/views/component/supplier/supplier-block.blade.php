@@ -9,13 +9,13 @@
                 <ul class="product-list-widget">
                     <li class="mini-cart-item">
                         <figure class="product-img">
-                            <a href="#"><img
+                            <a href="{{ route('supplier', ['supplierId' => $supplier -> supplier_id]) }}"><img
                                         src="{{"/images/supplier/". $supplier -> avatar}}"
                                         height="58" width="75">
                             </a>
                         </figure>
                         <div class="product-title"><a
-                                    href="{{$supplier ->url}}"><strong>{{$supplier -> name}}</strong></a>
+                                    href="{{ route('supplier', ['supplierId' => $supplier -> supplier_id]) }}"><strong>{{$supplier -> name}}</strong></a>
                         </div>
                         <div class="product-price">{{$supplier ->url}}</div>
                     </li>
