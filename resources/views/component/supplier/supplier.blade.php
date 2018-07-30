@@ -167,19 +167,19 @@
                                                         <div class="fs-list-block">
                                                             <ul class="fs-list">
                                                                 <li class="fs-item">
-                                                                    <a href="">Views <span
+                                                                    <a>Views <span
                                                                                 class="count">{{$supplier -> getViews()}}</span></a>
                                                                 </li>
                                                                 <li class="fs-item">
-                                                                    <a href="">Likes <span
+                                                                    <a>Likes <span
                                                                                 class="count">{{$supplier -> getLikes()}}</span></a>
                                                                 </li>
                                                                 <li class="fs-item">
-                                                                    <a href="">Comments <span
+                                                                    <a>Comments <span
                                                                                 class="count">{{$supplier -> getComments()}}</span></a>
                                                                 </li>
                                                                 <li class="fs-item">
-                                                                    <a href="">Subscribes <span class="count">125</span></a>
+                                                                    <a>Subscribes <span class="count">125</span></a>
                                                                 </li>
                                                             </ul>
                                                         </div>
@@ -196,7 +196,7 @@
                                                             <ul class="fs-list">
                                                                 @foreach($tags as $tag)
                                                                     <li class="fs-item">
-                                                                        <a href="">{{$tag -> tag}}
+                                                                        <a>{{$tag -> tag}}
                                                                             <span class="count">{{$tag -> getNewsCountByTag($tag -> tag)}}</span>
                                                                         </a>
                                                                     </li>
