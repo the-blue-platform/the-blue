@@ -43,6 +43,58 @@ class News extends Model
             ->get();
     }
 
+    public function getStartupNews()
+    {
+        $date = new Carbon();
+        $date->subWeek();
+
+        return $this->join('view', 'view.news_id', '=', 'news.news_id')
+            ->where('publish_date', '>', $date->toDateTimeString())
+            ->where('supplier_id', '3')
+            ->orderBy("view.view", "desc")
+            ->take(4)
+            ->get();
+    }
+
+    public function getTechnologyNews()
+    {
+        $date = new Carbon();
+        $date->subWeek();
+
+        return $this->join('view', 'view.news_id', '=', 'news.news_id')
+            ->where('publish_date', '>', $date->toDateTimeString())
+            ->where('supplier_id', '10')
+            ->orderBy("view.view", "desc")
+            ->take(4)
+            ->get();
+    }
+
+    public function getBusinessNews()
+    {
+        $date = new Carbon();
+        $date->subWeek();
+
+        return $this->join('view', 'view.news_id', '=', 'news.news_id')
+            ->where('publish_date', '>', $date->toDateTimeString())
+            ->where('supplier_id', '4')
+            ->orderBy("view.view", "desc")
+            ->take(4)
+            ->get();
+    }
+
+    public function getScienceNews()
+    {
+        $date = new Carbon();
+        $date->subWeek();
+
+        return $this->join('view', 'view.news_id', '=', 'news.news_id')
+            ->where('publish_date', '>', $date->toDateTimeString())
+            ->where('supplier_id', '5')
+            ->orderBy("view.view", "desc")
+            ->take(4)
+            ->get();
+    }
+
     public function getById($newsId)
     {
         return $this->where('news_id', $newsId)->first();

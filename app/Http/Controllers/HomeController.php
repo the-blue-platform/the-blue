@@ -18,7 +18,11 @@ class HomeController extends Controller
         $headline = new News();
         return view('home')
             ->with('headline', $headline->getHeadlineNews())
-            ->with('trending_news', $headline->getTrendingNews());
+            ->with('trending_news', $headline->getTrendingNews())
+            ->with('startup', $headline->getStartupNews())
+            ->with('technology', $headline->getTechnologyNews())
+            ->with('business', $headline->getBusinessNews())
+            ->with('science', $headline->getScienceNews());
     }
 
     public function getTrendingPost()

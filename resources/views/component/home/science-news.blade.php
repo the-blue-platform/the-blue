@@ -1,11 +1,11 @@
 <div class="trend-pst">
     <div class="pst-block">
         <div class="pst-block-head">
-            <h2 class="title-4">Technology</h2>
+            <h2 class="title-4">Science</h2>
         </div>
         <div class="pst-block-main">
             <div class="col-row">
-                @foreach($technology as $news)
+                @foreach($science as $news)
                     <div class="col-one-quarter" style="background-color: #ffffff; border: none !important;">
                         <article class="post post-tp-4">
                             <figure style="background-color: #ffffff;">

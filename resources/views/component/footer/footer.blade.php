@@ -26,12 +26,6 @@
                         <li class="gp">
                             <a href="#"><i class="fa fa-google-plus"></i></a>
                         </li>
-                        <li class="in">
-                            <a href="#"><i class="fa fa-instagram"></i></a>
-                        </li>
-                        <li class="dr">
-                            <a href="#"><i class="fa fa-dribbble"></i></a>
-                        </li>
                     </ul>
                 </div>
             </div>

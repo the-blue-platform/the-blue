@@ -8,7 +8,7 @@
 <link href="/css/components.css" rel="stylesheet" type="text/css">
 <link href="/css/colors.css" rel="stylesheet" type="text/css">
 
-<link rel="stylesheet" href="/css/font-awesome.css"/>
+{{--<link rel="stylesheet" href="/css/font-awesome.css"/>--}}
 <link rel="stylesheet" href="/css/linecons.css"/>
 <link rel="stylesheet" href="/css/fontello.css"/>
 <link rel="stylesheet" href="/css/main.css"/>
