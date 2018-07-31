@@ -123,16 +123,14 @@ class Resource extends Model
                 ->where("news.tag", $tag)
                 ->where('publish_date', '>', $date->toDateTimeString())
                 ->orderBy("publish_date", "desc")
-                ->take(8)
-                ->get();
+                ->paginate(9);
         } else {
             return DB::connection('mysql_news')
                 ->table('news')
                 ->whereIn('supplier_id', $this->listOfSupplierId())
                 ->where('publish_date', '>', $date->toDateTimeString())
                 ->orderBy("publish_date", "desc")
-                ->take(8)
-                ->get();
+                ->paginate(9);
         }
     }
 }

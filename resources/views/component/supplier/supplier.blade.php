@@ -73,22 +73,7 @@
                                                     </article>
                                                 @endforeach
                                             </div>
-                                            <!-- Page nav -->
-                                            <div class="page-nav">
-                                                <a href="author.html" class="pn-item">
-                                                    <i class="page-nav-prev-ic"></i>
-                                                </a>
-                                                <a href="author.html" class="pn-item current mb-pt-hide">1</a>
-                                                <a href="author.html" class="pn-item mb-pt-hide">2</a>
-                                                <a href="author.html" class="pn-item mb-pt-hide">3</a>
-                                                <span class="extend mb-pt-hide">...</span>
-                                                <a href="author.html" class="pn-item mb-pt-hide">7</a>
-                                                <a href="author.html" class="pn-item">
-                                                    <i class="page-nav-next-ic"></i>
-                                                </a>
-                                                <span class="page-count">Page 1 of 7</span>
-                                            </div>
-                                            <!-- Page nav END -->
+                                            {!! $latestNews -> render()!!}
                                         </div>
                                     </div>
                                     <aside class="side-bar">
