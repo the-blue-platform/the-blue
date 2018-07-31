@@ -113,34 +113,10 @@
                 <div class="pst-block">
                     <div class="pst-block-head">
                         <h2 class="title-4">Recommendations for you</h2>
-                        <div class="filters">
-                            <ul class="filters-list-1 xs-hide">
-                                <li><a href="index.html" class="active">all</a></li>
-                                <li><a href="index.html">business</a></li>
-                                <li><a href="index.html">gadgets</a></li>
-                                <li><a href="index.html">design</a></li>
-                                <li><a href="index.html">fachion</a></li>
-                                <li><a href="index.html">video</a></li>
-                            </ul>
-                            <div class="filters-more">
-                                <div class="filters-btn js-fl-btn">
-                                    <i class="li_settings"></i>
-                                    <div class="filters-drop js-fl-block">
-                                        <i class="arr"></i>
-                                        <ul>
-                                            <li><a href="index.html">Latest</a></li>
-                                            <li><a href="index.html" class="active">Popular</a></li>
-                                            <li><a href="index.html">Recent</a></li>
-                                            <li><a href="index.html">Most comment</a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                     <div class="pst-block-main">
                         <div class="col-row">
-                            <div class="col-one-quarter" style="background-color: #ffffff;">
+                            <div class="col-one-quarter"  style="background-color: #ffffff; border: none !important;">
                                 <article class="post post-tp-4">
                                     <figure style="background-color: #ffffff;">
                                         <a href="index.html">
@@ -168,7 +144,7 @@
                                     </div>
                                 </article>
                             </div>
-                            <div class="col-one-quarter">
+                            <div class="col-one-quarter"  style="background-color: #ffffff; border: none !important;">
                                 <article class="post post-tp-4">
                                     <figure>
                                         <a href="index.html">
@@ -196,7 +172,7 @@
                                     </div>
                                 </article>
                             </div>
-                            <div class="col-one-quarter">
+                            <div class="col-one-quarter"  style="background-color: #ffffff; border: none !important;">
                                 <article class="post post-tp-4">
                                     <figure>
                                         <a href="index.html">
@@ -224,7 +200,7 @@
                                     </div>
                                 </article>
                             </div>
-                            <div class="col-one-quarter">
+                            <div class="col-one-quarter"  style="background-color: #ffffff; border: none !important;">
                                 <article class="post post-tp-4">
                                     <figure>
                                         <a href="index.html">
@@ -255,9 +231,13 @@
                         </div>
                     </div>
                     <div class="pst-block-foot">
-                        <a href="index.html">More recent posts</a>
+                        <a href="#">Show more</a>
                     </div>
                 </div>
+                @include('component.container.content.technology')
+                @include('component.container.content.technology')
+                @include('component.container.content.technology')
+                @include('component.container.content.technology')
             </div>
         </div>
     </div>
