@@ -59,7 +59,7 @@ class NewsController extends Controller
         $news = new News();
         $trending_news = $news->getLatestNews($supplier_id);
 
-        return view('component.news.latest-news-block')
+        return view('component.home.trending-news')
             ->with('trending_news', $trending_news);
     }
 }

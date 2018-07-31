@@ -252,10 +252,10 @@
                                 <a href="#">Show more</a>
                             </div>
                         </div>
-                        @include('component.container.content.technology')
-                        @include('component.container.content.technology')
-                        @include('component.container.content.technology')
-                        @include('component.container.content.technology')
+                        @include('component.home.technology-news')
+                        @include('component.home.technology-news')
+                        @include('component.home.technology-news')
+                        @include('component.home.technology-news')
                     </div>
                 </div>
             </div>

@@ -139,7 +139,7 @@
                                             <h2 class="title-4"><strong>Latest News</strong></h2>
                                         </div>
                                         <div id="latest-news">
-                                            @include('component.news.latest-news-block')
+                                            @include('component.home.trending-news')
                                         </div>
                                     </div>
                                 </div>

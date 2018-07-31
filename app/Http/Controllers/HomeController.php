@@ -25,7 +25,7 @@ class HomeController extends Controller
     {
         $headline = new News();
 
-        return view('component.news.latest-news-block')
+        return view('component.home.trending-news')
             ->with('trending_news', $headline->getTrendingNews());
     }
 }
