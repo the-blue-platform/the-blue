@@ -28,55 +28,19 @@
                                                     <h2 class="title-4"><strong>Popular</strong> news</h2>
                                                     <div class="filters">
                                                         <ul class="filters-list-1 xs-hide">
-                                                            <li><a href="" class="active">all</a></li>
+                                                            <li>
+                                                                <a class="active" id="all">all</a>
+                                                            </li>
                                                             @foreach($tags as $tag)
-                                                                <li><a href="">{{$tag -> tag}}</a></li>
+                                                                <li>
+                                                                    <a id="{{$tag -> tag}}">{{$tag -> tag}}</a>
+                                                                </li>
                                                             @endforeach
                                                         </ul>
                                                     </div>
                                                 </div>
-                                                <div class="pst-block-main">
-                                                    <div class="col-row">
-                                                        <div class="col-half">
-                                                            <article class="post post-tp-5">
-                                                                <figure>
-                                                                    <a href="{{ route('news', ['newsId' => $highlight -> news_id]) }}">
-                                                                        <img src="{{$highlight -> image}}"
-                                                                             height="242" width="345" class="adaptive"/>
-                                                                    </a>
-                                                                </figure>
-                                                                <h3 class="title-5">
-                                                                    <a href="{{ route('news', ['newsId' => $highlight -> news_id]) }}">{{$highlight -> title}}</a>
-                                                                </h3>
-                                                                <div class="meta-tp-2">
-                                                                    <div class="date">
-                                                                        <span>{{$highlight -> publish_date}}</span>
-                                                                    </div>
-                                                                    <div class="category">
-                                                                        <a><i class="li_eye"></i><span>125</span></a>
-                                                                    </div>
-                                                                </div>
-                                                                <p class="p">{{$highlight -> content}}</p>
-                                                            </article>
-                                                        </div>
-                                                        <div class="col-half">
-                                                            @foreach($news as $article)
-                                                                <article class="post post-tp-6">
-                                                                    <figure>
-                                                                        <a href="{{ route('news', ['newsId' => $article -> news_id]) }}">
-                                                                            <img src="{{$article -> image}}"
-                                                                                 height="85" width="115"
-                                                                                 class="adaptive"/>
-                                                                        </a>
-                                                                    </figure>
-                                                                    <h3 class="title-6"><a
-                                                                                href="{{ route('news', ['newsId' => $article -> news_id]) }}">{{$article->title}}</a>
-                                                                    </h3>
-                                                                    <div class="date-tp-2">{{$article -> publish_date}}</div>
-                                                                </article>
-                                                            @endforeach
-                                                        </div>
-                                                    </div>
+                                                <div class="pst-block-main" id="popular-news">
+                                                    @include('component.supplier.popular-news')
                                                 </div>
                                             </div>
                                         </div>
@@ -129,7 +93,7 @@
                                     </div>
                                     <aside class="side-bar">
                                         <div class="js-sidebar">
-                                            <div class="author-box-2">
+                                            <div class="author-box-2" id="{{$supplier->supplier_id}}">
                                                 <div class="author-photo">
                                                     <img src="{{"/images/supplier/". $supplier -> avatar}}"
                                                          height="134" width="134">
@@ -191,7 +155,7 @@
                                                     <div class="pst-block-head">
                                                         <h2 class="title-4">Category</h2>
                                                     </div>
-                                                    <div class="pst-block-main">
+                                                    <div class="pst-block-main popular">
                                                         <div class="fs-list-block">
                                                             <ul class="fs-list">
                                                                 @foreach($tags as $tag)
@@ -339,4 +303,6 @@
                 </div>
             </div>
         </div>
+    </div>
+    <script src="/js/supplier/popular-news.js"></script>
 @stop

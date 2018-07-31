@@ -43,4 +43,15 @@ class SupplierController extends Controller
             ->with("latestNews", $latestNews);
 
     }
+
+    public function getPopularNews($supplier_id, $tag)
+    {
+        $resource = new Resource();
+        $resource = $resource->getBySupplierId($supplier_id);
+        $highlight = $resource->getHighLight($tag);
+        $popular = $resource->getPopular($tag);
+        return view('component.supplier.popular-news')
+            ->with("highlight", $highlight)
+            ->with("news", $popular);
+    }
 }

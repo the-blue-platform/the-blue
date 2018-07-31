@@ -162,6 +162,7 @@
             </div>
         </div>
     </div>
+    <script src="/js/news/latest-news.js"></script>
+    <script src="/js/like/like.js"></script>
+    <script src="/js/comment/comment.js"></script>
 @stop
-
-<script src="/js/news/latest-news.js"></script>

@@ -51,7 +51,7 @@ class Resource extends Model
         $date = new Carbon();
         $date->subWeek();
 
-        if (!$tag == null) {
+        if (!$tag == null && $tag != 'all') {
             return DB::connection('mysql_news')
                 ->table('news')
                 ->join(
@@ -82,7 +82,7 @@ class Resource extends Model
         $date = new Carbon();
         $date->subWeek();
 
-        if (!$tag == null) {
+        if (!$tag == null && $tag != 'all') {
             return DB::connection('mysql_news')
                 ->table('news')
                 ->join(

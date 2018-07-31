@@ -113,3 +113,9 @@ Route::get('/supplier/{newsId}', [
     'uses' => 'Supplier\SupplierController@index',
     'as' => 'supplier',
 ]);
+
+
+Route::get('/supplier/supplier/update/{resourceId}/{tag}', [
+    'uses' => 'Supplier\SupplierController@getPopularNews',
+    'as' => 'supplier.update',
+]);
