@@ -10,14 +10,16 @@ namespace Blue\Http\Controllers;
 
 
 use Blue\Models\News;
+use Blue\Repository\News\NewsRepository;
 
 class HomeController extends Controller
 {
     public function index()
     {
         $headline = new News();
+        $newsRepository = new NewsRepository();
         return view('home')
-            ->with('headline', $headline->getHeadlineNews())
+            ->with('headline', $newsRepository->getHeadlineNews())
             ->with('trending_news', $headline->getTrendingNews())
             ->with('startup', $headline->getStartupNews())
             ->with('technology', $headline->getTechnologyNews())

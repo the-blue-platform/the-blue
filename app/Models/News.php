@@ -11,7 +11,6 @@ namespace Blue\Models;
 use Blue\Models\View\View;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Facades\DB;
 
 class News extends Model
 {
@@ -102,7 +101,8 @@ class News extends Model
 
     public function getLatestNews($supplierID)
     {
-        return $this->where('supplier_id', $supplierID)->where('id', '!=', $this->id)->orderBy('publish_date', 'desc')->take(20)->get();
+        return $this->where('supplier_id', $supplierID)->where('id', '!=', $this->id)->orderBy('publish_date',
+            'desc')->take(20)->get();
     }
 
     public static function find($newsId)
@@ -141,6 +141,10 @@ class News extends Model
 
     public function getRelatedNews()
     {
-        return $this->where('tag', $this->tag)->where('id', '!=', $this->id)->orderBy('publish_date', 'desc')->take(12)->get();
+        return $this
+            ->where('tag', $this->tag)
+            ->where('id', '!=', $this->id)
+            ->orderBy('publish_date', 'desc')
+            ->take(12)->get();
     }
 }

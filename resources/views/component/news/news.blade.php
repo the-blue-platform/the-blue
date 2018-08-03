@@ -1,5 +1,11 @@
 @extends('component.home.default')
 
+<style>
+    .news-content img {
+        width: 100%;
+        height: auto;
+    }
+</style>
 @section('content')
     <div class="content">
         <div class="main">
@@ -17,7 +23,9 @@
                                                     <div class="title-blc-3">
                                                         <h2>{{$article -> title}}</h2>
                                                     </div>
-                                                    {!! $content !!}
+                                                    <div class="news-content">
+                                                        {!! $content !!}
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
