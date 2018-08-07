@@ -10,6 +10,7 @@
 namespace Blue\Repository\News;
 
 
+use Blue\Domain\News\NewsCollection;
 use Blue\Infrastructure\News\NewsInfrastructure;
 
 class NewsRepository
@@ -27,6 +28,12 @@ class NewsRepository
 
     public function getHeadlineNews()
     {
-        return $this->newsInfrastructure->getHeadlineNews();
+        $newsEntity = $this->newsInfrastructure->getHeadlineNews();
+        $newsCollection = new NewsCollection([]);
+        foreach ($newsEntity as $news) {
+            $newsCollection->add(NewsMapper::map($news));
+        }
+
+        return $newsCollection;
     }
 }

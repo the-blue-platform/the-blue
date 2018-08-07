@@ -18,6 +18,7 @@ class HomeController extends Controller
     {
         $headline = new News();
         $newsRepository = new NewsRepository();
+
         return view('home')
             ->with('headline', $newsRepository->getHeadlineNews())
             ->with('trending_news', $headline->getTrendingNews())

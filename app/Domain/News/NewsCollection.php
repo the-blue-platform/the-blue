@@ -12,16 +12,7 @@ namespace Blue\Domain\News;
 class NewsCollection implements \Iterator
 {
 
-    private $news = array(News::class);
-
-    /**
-     * NewsCollection constructor.
-     * @param array $news
-     */
-    public function __construct(array $news)
-    {
-        $this->news = $news;
-    }
+    private $news = array();
 
     /**
      * NewsCollection constructor.

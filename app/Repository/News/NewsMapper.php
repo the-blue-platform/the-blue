@@ -14,7 +14,7 @@ use Blue\Domain\News\News;
 class NewsMapper
 {
 
-    public function map($newsEntity)
+    public static function map($newsEntity)
     {
         return new News(
             $newsEntity->news_id,
