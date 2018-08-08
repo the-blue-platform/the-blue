@@ -3,12 +3,13 @@ $(document).on("click", ".comment-news-submit", function () {
     var url = $(this).data("href");
     var news_id = $(this).data("news-id");
     var comment = $("#comment-" + news_id).val();
+    console.log(news_id);
     $.ajax({
         method: "POST",
         url: url,
         data: {comment: comment, _token: token}
-    }).success(function (data) {
-        $(".comment-list #news-comment-box").after(data.view);
+    }).done(function (data) {
+        $(".stack-media-on-mobile").append(data.view);
         $("#comment-" + news_id).val('');
         $("#views").text(data.viewCounts);
     });

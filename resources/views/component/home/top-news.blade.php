@@ -8,7 +8,6 @@
             <li data-target="#headline" data-slide-to="3"></li>
             <li data-target="#headline" data-slide-to="4"></li>
             <li data-target="#headline" data-slide-to="5"></li>
-            <li data-target="#headline" data-slide-to="6"></li>
         </ol>
 
         <!-- Wrapper for slides -->
@@ -18,7 +17,9 @@
                     <img src="{{$article ->getImage()}}" href="{{ route('news', ['newsId' => $article -> getId()]) }}"
                          style="width: 100%;height: auto;">
                     <div class="carousel-caption">
-                        <h3 href="{{ route('news', ['newsId' => $article -> getId()]) }}">{{$article -> getTitle()}}</h3>
+                        <h2>
+                            <a href="{{ route('news', ['newsId' => $article -> getId()]) }}" style="color: white"> {{$article -> getTitle()}}</a>
+                        </h2>
                         <p>{{$article -> getPublishDate()}}</p>
                     </div>
                 </div>

@@ -11,7 +11,7 @@
             </div>
 
             <div class="caption">
-                <h6 class="text-semibold no-margin">{{$news ->title}}</h6>
+                <h6 class="text-semibold no-margin">{{ str_limit($news -> title, $limit = 65, $end = '...') }}</h6>
                 <p class="text-muted mb-15 mt-5">12 days ago</p>
                 <div class="media">
                     <div class="media-left">

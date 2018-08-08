@@ -33,7 +33,7 @@
         </div>
     </div>
     <div class="row" style="padding-left: 100px;padding-right:100px;">
-        <div class="panel-heading">
+        <div class="panel-heading" style="padding-left: 0">
             <h6 class="panel-title">Recommendations for you</h6>
             <div class="heading-elements">
                 <span class="label bg-success heading-text">28 news</span>

@@ -2,17 +2,16 @@
     @foreach($recommendation as $news)
         <div class="thumbnail col-lg-3" style="padding-left: 8px; padding-right: 8px">
             <div class="thumb">
-                <img src="{{$news ->image}}" alt="">
-                <div class="caption-overflow">
-									<span>
-										<a href="#" class="icon icon-eye"> 30</a>
-									</span>
-                </div>
+                <a href="{{ route('news', ['newsId' => $news -> news_id]) }}">
+                    <img src="{{$news ->image}}" alt="">
+                </a>
             </div>
 
             <div class="caption">
-                <h6 class="text-semibold no-margin">{{$news ->title}}</h6>
-                <p class="text-muted mb-15 mt-5">12 days ago</p>
+                <a href="{{ route('news', ['newsId' => $news -> news_id]) }}">
+                    <h6 class="text-semibold no-margin" style="color: black">{{ str_limit($news -> title, $limit = 65, $end = '...') }}</h6>
+                </a>
+                <p class="text-muted mb-15 mt-5">{{$news -> created_at->diffForHumans()}}</p>
                 <div class="media">
                     <div class="media-left">
                         <img src="/images/users/face10.jpg" class="img-circle img-sm" alt="">

@@ -31,7 +31,7 @@ $(document).on("click", ".like-comment", function () {
         method: "POST",
         url: url,
         data: {_token: token}
-    }).success(function (data) {
+    }).done(function (data) {
         $("#like-comment-" + id).text(data.comment_like);
         if (type === "Like") {
             $("#like-comment-button-" + id).text("Dislike");
@@ -52,7 +52,7 @@ $(document).on("click", ".like-subcomment", function () {
         method: "POST",
         url: url,
         data: {_token: token}
-    }).success(function (data) {
+    }).done(function (data) {
         $("#like-subcomment-" + id).text(data.comment_like);
         if (type === "Like") {
             $("#like-subcomment-button-" + id).text("Dislike");
