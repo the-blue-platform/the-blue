@@ -100,7 +100,7 @@
     }
 </style>
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-@extends('component.home.default')
+@extends('component.base.base')
 @section('content')
     <div class="login-form">
         <form action="{{route('auth.signin')}}" method="post">

@@ -33,7 +33,7 @@ class NewsInfrastructure
         return $this->newsEntity->join('view', 'view.news_id', '=', 'news.news_id')
             ->where('publish_date', '>', $date->toDateTimeString())
             ->orderBy("view.view", "desc")
-            ->take(3)
+            ->take(6)
             ->get();
     }
 }

@@ -18,14 +18,22 @@ class HomeController extends Controller
     {
         $headline = new News();
         $newsRepository = new NewsRepository();
-
-        return view('home')
+        return view('home2')
             ->with('headline', $newsRepository->getHeadlineNews())
             ->with('trending_news', $headline->getTrendingNews())
-            ->with('startup', $headline->getStartupNews())
+            ->with('recommendation', $headline->getBusinessNews())
             ->with('technology', $headline->getTechnologyNews())
             ->with('business', $headline->getBusinessNews())
             ->with('science', $headline->getScienceNews());
+
+
+//        return view('home')
+//            ->with('headline', $newsRepository->getHeadlineNews())
+//            ->with('trending_news', $headline->getTrendingNews())
+//            ->with('startup', $headline->getStartupNews())
+//            ->with('technology', $headline->getTechnologyNews())
+//            ->with('business', $headline->getBusinessNews())
+//            ->with('science', $headline->getScienceNews());
     }
 
     public function getTrendingPost()

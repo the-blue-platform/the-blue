@@ -1,4 +1,4 @@
-<div class="navbar navbar-inverse fixed-top">
+<div class="navbar navbar-inverse navbar-fixed-top">
     @include('component.header.logo')
 
     <div class="navbar-collapse collapse">

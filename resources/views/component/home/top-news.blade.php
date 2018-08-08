@@ -1,32 +1,38 @@
-<div class="slide">
-    <article class="post post-tp-1">
-        <figure>
-            <a href="{{ route('news', ['newsId' => $article -> getId()]) }}"><img
-                        src="{{$article ->getImage()}}"
-                        height="471" width="760" alt="Spectr News Theme"
-                        class="adaptive"/></a>
-        </figure>
-        <div class="ptp-1-overlay">
-            <div class="ptp-1-data">
-                <a href="#" class="category-tp-1">{{$article ->getTag()}}</a>
-                <h3 class="title-1"><a
-                            href="{{ route('news', ['newsId' => $article -> getId()]) }}">{{$article -> getTitle()}}</a>
-                </h3>
-                <div class="meta-tp-1">
-                    <div class="ptp-1-date"><a>{{$article -> getPublishDate()}}</a>
-                    </div>
-                    <div class="ptp-1-views"><a href="#"><i
-                                    class="li_like"></i><span>1</span></a>
-                    </div>
-                    <div class="ptp-1-views"><a><i
-                                    class="li_eye"></i><span>1</span></a></div>
-                    <div class="ptp-1-comments"><a href="#"><i
-                                    class="li_bubble"></i><span>1</span></a>
+<div class="panel panel-flat">
+    <div id="headline" class="carousel slide" data-ride="carousel">
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+            <li data-target="#headline" data-slide-to="0" class="active"></li>
+            <li data-target="#headline" data-slide-to="1"></li>
+            <li data-target="#headline" data-slide-to="2"></li>
+            <li data-target="#headline" data-slide-to="3"></li>
+            <li data-target="#headline" data-slide-to="4"></li>
+            <li data-target="#headline" data-slide-to="5"></li>
+            <li data-target="#headline" data-slide-to="6"></li>
+        </ol>
+
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner">
+            @foreach($headline as $article)
+                <div class="item {{ $loop->first ? 'active' : '' }}">
+                    <img src="{{$article ->getImage()}}" href="{{ route('news', ['newsId' => $article -> getId()]) }}"
+                         style="width: 100%;height: auto;">
+                    <div class="carousel-caption">
+                        <h3 href="{{ route('news', ['newsId' => $article -> getId()]) }}">{{$article -> getTitle()}}</h3>
+                        <p>{{$article -> getPublishDate()}}</p>
                     </div>
                 </div>
-                <a href="#" class="read-tp-1"><span>Read later</span> <span
-                            class="li_note"><i></i></span></a>
-            </div>
+            @endforeach
         </div>
-    </article>
+
+        <!-- Left and right controls -->
+        <a class="left carousel-control" href="#headline" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="right carousel-control" href="#headline" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
 </div>

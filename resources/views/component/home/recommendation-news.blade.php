@@ -1,5 +1,5 @@
 <div class="table-responsive">
-    @foreach($business as $news)
+    @foreach($recommendation as $news)
         <div class="thumbnail col-lg-3" style="padding-left: 8px; padding-right: 8px">
             <div class="thumb">
                 <img src="{{$news ->image}}" alt="">

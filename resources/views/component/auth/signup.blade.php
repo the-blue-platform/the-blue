@@ -1,4 +1,4 @@
-@extends('component.home.default')
+@extends('component.base.base')
 <style type="text/css">
     body {
         color: #fff;

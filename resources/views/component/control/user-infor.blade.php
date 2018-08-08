@@ -26,8 +26,7 @@
                                                       class="img-circle img-lg" alt=""></a>
                 <span class="media-heading">No Account</span>
                 <form action="{{route('auth.signup')}}">
-                    <button type="submit" class="btn"
-                            style="background-color:#263238; border-color: #fff;color: #fff">
+                    <button type="submit" class="btn" style="background-color:#fff; border-color: #000000">
                         Create an account?
                     </button>
                 </form>

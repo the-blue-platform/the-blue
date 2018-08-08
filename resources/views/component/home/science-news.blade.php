@@ -1,45 +1,38 @@
-<div class="trend-pst">
-    <div class="pst-block">
-        <div class="pst-block-head">
-            <h2 class="title-4">Science</h2>
-        </div>
-        <div class="pst-block-main">
-            <div class="col-row">
-                @foreach($science as $news)
-                    <div class="col-one-quarter" style="background-color: #ffffff; border: none !important;">
-                        <article class="post post-tp-4">
-                            <figure style="background-color: #ffffff;">
-                                <a href="{{ route('news', ['newsId' => $news -> news_id]) }}">
-                                    <img src="{{$news ->image}}"
-                                         height="186" width="260" class="adaptive"/>
-                                </a>
-                                <div class="ptp-4-overlay">
-                                    <div class="ptp-4-data">
-                                        <a>
-                                            <i class="li_like"></i>{{$news -> likes() -> count()}}
-                                        </a>
-                                        <a>
-                                            <i class="li_eye"></i>{{$news -> views()}}
-                                        </a>
-                                    </div>
-                                </div>
-                            </figure>
-                            <h3 class="title-3">
-                                <a href="{{ route('news', ['newsId' => $news -> news_id]) }}">{{$news ->title}}</a>
-                            </h3>
-                            <div class="meta-tp-2">
-                                <div class="date"><span>{{$news ->publish_date}}</span></div>
-                                <div class="category">
-                                    <a href=""><i class="li_pen"></i><span>{{$news ->tag}}</span></a>
-                                </div>
-                            </div>
-                        </article>
+<div class="table-responsive">
+    @foreach($science as $news)
+        <div class="thumbnail col-lg-3" style="padding-left: 8px; padding-right: 8px">
+            <div class="thumb">
+                <img src="{{$news ->image}}" alt="">
+                <div class="caption-overflow">
+									<span>
+										<a href="#" class="icon icon-eye"> 30</a>
+									</span>
+                </div>
+            </div>
+
+            <div class="caption">
+                <h6 class="text-semibold no-margin">{{$news ->title}}</h6>
+                <p class="text-muted mb-15 mt-5">12 days ago</p>
+                <div class="media">
+                    <div class="media-left">
+                        <img src="/images/users/face10.jpg" class="img-circle img-sm" alt="">
                     </div>
-                @endforeach
+
+                    <div class="media-body">
+                        <a href="#" class="media-heading">
+                            <span class="text-blue"><strong>James Alexander</strong></span>
+                            <span class="media-annotation pull-right">12:16</span>
+                        </a>
+
+                        <span class="text-muted">who knows, maybe that would be the best thing for me...</span>
+                    </div>
+                </div>
+                <ul class="list-inline list-inline-condensed no-margin-bottom mt-15">
+                    <li><a href="#"><img src="/images/users/face1.jpg" class="img-circle img-xs" alt=""></a></li>
+                    <li><a href="#"><img src="/images/users/face24.jpg" class="img-circle img-xs" alt=""></a></li>
+                    <li><a href="#"><img src="/images/users/face11.jpg" class="img-circle img-xs" alt=""></a></li>
+                </ul>
             </div>
         </div>
-        <div class="pst-block-foot">
-            <a href="#">Show more</a>
-        </div>
-    </div>
+    @endforeach
 </div>
