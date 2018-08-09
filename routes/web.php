@@ -119,3 +119,14 @@ Route::get('/supplier/supplier/update/{resourceId}/{tag}', [
     'uses' => 'Supplier\SupplierController@getPopularNews',
     'as' => 'supplier.update',
 ]);
+
+
+/**
+ * User page
+ */
+Route::get('/user/{userId}', [
+    'uses' => 'User\UserController@index',
+    'as' => 'user',
+]);
+
+Route::post('/user/profile', 'User\UserController@updateAvatar');

@@ -5,9 +5,9 @@
             <!-- Main -->
             <li class="navigation-header"><span>Main</span> <i class="icon-menu" title="Main pages"></i>
             </li>
-            <li class="active"><a href="#"><i class="icon-home4"></i> <span>Home page</span></a></li>
+            <li class="active"><a href=""><i class="icon-home4"></i> <span>Home page</span></a></li>
             <li>
-                <a href="#"><i class="icon-stack2"></i> <span>News resources</span></a>
+                <a href="{{ route('user', ['userId' => Auth::user() ->id]) }}"><i class="icon-user"></i> <span>User page</span></a>
             </li>
             <li>
                 <a href="#"><i class="icon-copy"></i> <span>News</span></a>
