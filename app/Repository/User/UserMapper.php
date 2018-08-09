@@ -22,7 +22,9 @@ class UserMapper
             $userEntity->email,
             $userEntity->first_name,
             $userEntity->last_name,
-            $userEntity->location
+            $userEntity->location,
+            $userEntity->avatar,
+            $userEntity->work
         );
     }
 
@@ -31,7 +33,9 @@ class UserMapper
         $users = [];
 
         foreach ($userEntities as $user) {
-            array_push($users, new User($user->id, $user->email, $user->first_name, $user->last_name, $user->location));
+            array_push($users,
+                new User($user->id, $user->email, $user->first_name, $user->last_name, $user->location, $user->avatar,
+                    $user->work));
         }
 
         return $users;

@@ -17,6 +17,8 @@ class User
     public $firstName;
     public $lastName;
     public $location;
+    public $avatar;
+    public $work;
 
     /**
      * User constructor.
@@ -25,18 +27,22 @@ class User
      * @param $firstName
      * @param $lastName
      * @param $location
+     * @param $avatar
+     * @param $work
      */
-    public function __construct($id, $email, $firstName, $lastName, $location)
+    public function __construct($id, $email, $firstName, $lastName, $location, $avatar, $work)
     {
         $this->id = $id;
         $this->email = $email;
         $this->firstName = $firstName;
         $this->lastName = $lastName;
         $this->location = $location;
+        $this->avatar = $avatar;
+        $this->work = $work;
     }
 
     /**
-     * @return Display name
+     * @return string Display name
      */
     public function getDisplayName()
     {

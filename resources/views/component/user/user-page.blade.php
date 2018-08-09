@@ -62,7 +62,7 @@
                                     <!-- Blog post -->
                                     <div class="timeline-row">
                                         <div class="timeline-icon">
-                                            <img src="/storage/avatars/{{ Auth::user()->avatar }}" alt="">
+                                            <img src="{{ $user -> avatar}}" alt="">
                                         </div>
                                         <div class="panel panel-flat">
                                             <div class="panel-heading">

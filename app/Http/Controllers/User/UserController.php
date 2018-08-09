@@ -10,15 +10,23 @@ namespace Blue\Http\Controllers\User;
 
 
 use Blue\Http\Controllers\Controller;
+use Blue\Repository\User\UserRepository;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
 
-    public function index($newsId)
+    public function index($userId)
     {
-        return view('component.user.user-page');
+        $userRepository = new UserRepository();
+        $user = $userRepository->findById($userId);
+
+        if (!$user) {
+            return redirect('/');
+        }
+        return view('component.user.user-page')
+            ->with('user', $user);
     }
 
     public function updateAvatar(Request $request)
@@ -37,7 +45,7 @@ class UserController extends Controller
 
         $request->avatar->storeAs('avatars', $avatarName);
 
-        $user->avatar = $avatarName;
+        $user->avatar = "/storage/avatars/" . $avatarName;
         $user->last_name = $request->input('last_name');
         $user->first_name = $request->input('first_name');
         $user->work = $request->input('work');

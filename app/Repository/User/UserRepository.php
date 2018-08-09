@@ -10,6 +10,7 @@ namespace Blue\Repository\User;
 
 
 use Blue\Infrastructure\User\UserInfrastructure;
+use phpDocumentor\Reflection\Types\Null_;
 
 class UserRepository
 {
@@ -27,6 +28,8 @@ class UserRepository
 
     public function findById($userId)
     {
-        return UserMapper::map($this->userInfrastructure->findById($userId));
+        $userEntity = $this->userInfrastructure->findById($userId);
+
+        return $userEntity ? UserMapper::map($userEntity) : null;
     }
 }

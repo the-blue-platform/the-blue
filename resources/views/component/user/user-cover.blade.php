@@ -2,13 +2,14 @@
 <div class="media">
     <div class="media-left">
         <a href="#" class="profile-thumb">
-            <img src="/storage/avatars/{{ Auth::user()->avatar }}" class="img-circle img-md" alt="">
+            <img src="{{ $user -> avatar}}" class="img-circle img-md" alt="">
         </a>
     </div>
 
     <div class="media-body">
-        <h1>{{Auth::user() -> getName()}}
-            <small class="display-block"><i class="icon-home5 text-size-small"></i> {{Auth::user() -> work}} At <i class="icon-pin text-size-small"></i> {{Auth::user() -> location}}</small>
+        <h1>{{$user -> getDisplayName()}}
+            <small class="display-block"><i class="icon-home5 text-size-small"></i> {{$user -> work}} At <i
+                        class="icon-pin text-size-small"></i> {{$user -> location}}</small>
         </h1>
     </div>
 

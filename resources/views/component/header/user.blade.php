@@ -1,6 +1,6 @@
 <li class="dropdown dropdown-user">
     <a class="dropdown-toggle" data-toggle="dropdown">
-        <img src="/storage/avatars/{{ Auth::user()->avatar }}" alt="">
+        <img src="{{ Auth::user()->avatar }}" alt="">
         <span>{{Auth::user() -> getName()}}</span>
         <i class="caret"></i>
     </a>

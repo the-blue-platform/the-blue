@@ -2,7 +2,7 @@
     <div class="category-content">
         @if(Auth::check())
         <div class="media">
-            <a href="{{ route('user', ['userId' => Auth::user() ->id]) }}" class="user_avatar media-left"><img src="/storage/avatars/{{ Auth::user()->avatar }}"
+            <a href="{{ route('user', ['userId' => Auth::user() ->id]) }}" class="user_avatar media-left"><img src="{{ Auth::user()->avatar }}"
                                                             class="img-circle img-sm" alt=""></a>
             <div class="media-body">
                 <span class="media-heading text-semibold">Trung Vu</span>
