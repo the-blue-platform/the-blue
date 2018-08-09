@@ -42,11 +42,14 @@ class NewsInfrastructure
         $date = new Carbon();
         $date->subWeek();
 
-        return $this->newsEntity->join('view', 'view.news_id', '=', 'news.news_id')
+        $news = $this->newsEntity->join('view', 'view.news_id', '=', 'news.news_id')
+            ->crossJoin('comment', 'comment.news_id', '=', 'news.news_id')
             ->where('publish_date', '>', $date->toDateTimeString())
             ->orderBy("view.view", "desc")
-            ->skip(6)
-            ->take(4)
+            ->select('news.news_id', 'news.supplier_id', 'news.title', 'news.content', 'news.image',
+                'news.publish_date')
             ->get();
+
+        return $news->unique('news_id')->take(4);
     }
 }

@@ -19,6 +19,7 @@ class CommentMapper
     {
         return new Comment(
             $commentEntity->id,
+            $commentEntity->user_id,
             $commentEntity->news_id,
             $commentEntity->parent_id,
             $commentEntity->body,

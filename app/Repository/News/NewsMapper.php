@@ -10,9 +10,10 @@ namespace Blue\Repository\News;
 
 
 use Blue\Domain\News\News;
+use Blue\Domain\News\RecommendationNews;
 use Blue\Entity\News\NewsEntity;
 use Blue\Repository\Comment\CommentMapper;
-use Blue\Repository\Like\LikeMappner;
+use Blue\Repository\User\UserMapper;
 
 class NewsMapper
 {
@@ -27,9 +28,24 @@ class NewsMapper
             $newsEntity->link,
             $newsEntity->image,
             $newsEntity->tag,
+            $newsEntity->publish_date
+        );
+    }
+
+    public static function mapRecommendationNews(NewsEntity $newsEntity, $userComment, $userLikes, $comment)
+    {
+        return new RecommendationNews(
+            $newsEntity->news_id,
+            $newsEntity->supplier_id,
+            $newsEntity->title,
+            $newsEntity->content,
+            $newsEntity->link,
+            $newsEntity->image,
+            $newsEntity->tag,
             $newsEntity->publish_date,
-            LikeMappner::mapList($newsEntity->likes()->get()),
-            CommentMapper::mapList($newsEntity->comments()->get())
+            UserMapper::map($userComment),
+            UserMapper::mapList($userLikes),
+            CommentMapper::map($comment)
         );
     }
 }

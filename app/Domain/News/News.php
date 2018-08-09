@@ -20,8 +20,6 @@ class News
     public $tag;
     public $publishDate;
 
-    public $likes;
-    public $comments;
 
     /**
      * News constructor.
@@ -44,9 +42,7 @@ class News
         $link,
         $image,
         $tag,
-        $publishDate,
-        $likes,
-        $comments
+        $publishDate
     ) {
         $this->id = $id;
         $this->supplierId = $supplierId;
@@ -56,87 +52,5 @@ class News
         $this->image = $image;
         $this->tag = $tag;
         $this->publishDate = $publishDate;
-        $this->likes = $likes;
-        $this->comments = $comments;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getSupplierId()
-    {
-        return $this->supplierId;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getTitle()
-    {
-        return $this->title;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getContent()
-    {
-        return $this->content;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getLink()
-    {
-        return $this->link;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getImage()
-    {
-        return $this->image;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getTag()
-    {
-        return $this->tag;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getPublishDate()
-    {
-        return $this->publishDate;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getLikes()
-    {
-        return $this->likes;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getComments()
-    {
-        return $this->comments;
     }
 }

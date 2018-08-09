@@ -14,13 +14,13 @@
         <div class="carousel-inner">
             @foreach($headline as $article)
                 <div class="item {{ $loop->first ? 'active' : '' }}">
-                    <img src="{{$article ->getImage()}}" href="{{ route('news', ['newsId' => $article -> getId()]) }}"
+                    <img src="{{$article ->image}}" href="{{ route('news', ['newsId' => $article -> id]) }}"
                          style="width: 100%;height: auto;">
                     <div class="carousel-caption">
                         <h2>
-                            <a href="{{ route('news', ['newsId' => $article -> getId()]) }}" style="color: white"> {{$article -> getTitle()}}</a>
+                            <a href="{{ route('news', ['newsId' => $article -> id]) }}" style="color: white"> {{$article -> title}}</a>
                         </h2>
-                        <p>{{$article -> getPublishDate()}}</p>
+                        <p>{{$article -> publishDate}}</p>
                     </div>
                 </div>
             @endforeach

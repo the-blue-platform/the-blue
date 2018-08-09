@@ -11,6 +11,7 @@ namespace Blue\Http\Controllers;
 
 use Blue\Models\News;
 use Blue\Repository\News\NewsRepository;
+use Blue\Repository\User\UserRepository;
 
 class HomeController extends Controller
 {
@@ -19,10 +20,11 @@ class HomeController extends Controller
         $headline = new News();
         $newsRepository = new NewsRepository();
 
+        $recommendation = $newsRepository->getRecommendationNews();
         return view('home2')
             ->with('headline', $newsRepository->getHeadlineNews())
             ->with('trending_news', $headline->getTrendingNews())
-            ->with('recommendation', $newsRepository->getRecommendationNews())
+            ->with('recommendation', $recommendation)
             ->with('technology', $headline->getTechnologyNews())
             ->with('business', $headline->getBusinessNews())
             ->with('science', $headline->getScienceNews());

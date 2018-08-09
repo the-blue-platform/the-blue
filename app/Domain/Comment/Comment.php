@@ -11,66 +11,29 @@ namespace Blue\Domain\Comment;
 
 class Comment
 {
-    private $id;
-    private $newsId;
-    private $parentId;
-    private $body;
-    private $createdDate;
+    public $id;
+    public $userId;
+    public $newsId;
+    public $parentId;
+    public $body;
+    public $createdDate;
 
     /**
      * Comment constructor.
      * @param $id
+     * @param $userId
      * @param $newsId
      * @param $parentId
      * @param $body
      * @param $createdDate
      */
-    public function __construct($id, $newsId, $parentId, $body, $createdDate)
+    public function __construct($id, $userId, $newsId, $parentId, $body, $createdDate)
     {
         $this->id = $id;
+        $this->userId = $userId;
         $this->newsId = $newsId;
         $this->parentId = $parentId;
         $this->body = $body;
         $this->createdDate = $createdDate;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getNewsId()
-    {
-        return $this->newsId;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getParentId()
-    {
-        return $this->parentId;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getBody()
-    {
-        return $this->body;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getCreatedDate()
-    {
-        return $this->createdDate;
     }
 }
