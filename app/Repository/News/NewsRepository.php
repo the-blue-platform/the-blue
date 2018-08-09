@@ -36,4 +36,15 @@ class NewsRepository
 
         return $newsCollection;
     }
+
+    public function getRecommendationNews()
+    {
+        $newsEntity = $this->newsInfrastructure->getRecommendationNews();
+        $newsCollection = new NewsCollection([]);
+        foreach ($newsEntity as $news) {
+            $newsCollection->add(NewsMapper::map($news));
+        }
+
+        return $newsCollection;
+    }
 }

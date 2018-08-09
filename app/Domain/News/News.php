@@ -11,14 +11,17 @@ namespace Blue\Domain\News;
 
 class News
 {
-    private $id;
-    private $supplierId;
-    private $title;
-    private $content;
-    private $link;
-    private $image;
-    private $tag;
-    private $publishDate;
+    public $id;
+    public $supplierId;
+    public $title;
+    public $content;
+    public $link;
+    public $image;
+    public $tag;
+    public $publishDate;
+
+    public $likes;
+    public $comments;
 
     /**
      * News constructor.
@@ -30,9 +33,21 @@ class News
      * @param $image
      * @param $tag
      * @param $publishDate
+     * @param $likes
+     * @param $comments
      */
-    public function __construct($id, $supplierId, $title, $content, $link, $image, $tag, $publishDate)
-    {
+    public function __construct(
+        $id,
+        $supplierId,
+        $title,
+        $content,
+        $link,
+        $image,
+        $tag,
+        $publishDate,
+        $likes,
+        $comments
+    ) {
         $this->id = $id;
         $this->supplierId = $supplierId;
         $this->title = $title;
@@ -41,6 +56,8 @@ class News
         $this->image = $image;
         $this->tag = $tag;
         $this->publishDate = $publishDate;
+        $this->likes = $likes;
+        $this->comments = $comments;
     }
 
     /**
@@ -105,5 +122,21 @@ class News
     public function getPublishDate()
     {
         return $this->publishDate;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getLikes()
+    {
+        return $this->likes;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getComments()
+    {
+        return $this->comments;
     }
 }

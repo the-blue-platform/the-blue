@@ -19,10 +19,10 @@
                     <li>By <a class="text-muted">{{$supplier -> name}}</a></li>
                     <li>{{$article -> publish_date}}</li>
                     <li><a class="text-muted"><i
-                                    class="icon-eye text-size-base text-pink position-left"></i> {{$article -> views()}}
+                                    class="li_eye text-size-base text-pink position-left"></i> {{$article -> views()}}
                         </a></li>
                     <li><a class="text-muted"><i
-                                    class="icon-heart6 text-size-base text-pink position-left"></i> {{$likes -> count()}}
+                                    class="li_like text-size-base text-pink position-left"></i> <span id="likes">{{$likes -> count()}}</span>
                         </a></li>
                 </ul>
 
@@ -33,6 +33,67 @@
         </div>
     </div>
     <!-- /post -->
+
+    <div class="panel panel-flat" style="padding-right: 50px; padding-left: 50px">
+        <div class="sidebar-category">
+            <div class="category-title">
+                <span>Like this news?</span>
+                <ul class="icons-list">
+                    <li><a href="#" data-action="collapse"></a></li>
+                </ul>
+            </div>
+
+            <div class="row">
+                <div class="category-content no-padding-bottom text-left col-lg-2">
+                    <ul class="list-inline no-margin">
+                        @if(!Auth::user() || !Auth::user() -> isNewsLiked($article -> news_id))
+                            <li class="fb">
+                                <a class="like"
+                                   data-href="{{ route('news.like', ['newsId' => $article -> news_id]) }}">
+                                    <i id="like-button-icon" class="fa li_like"
+                                       style="margin-right:0"></i>
+                                    <span class="mb-pt-hide">Like</span>
+                                </a>
+                            </li>
+                        @else
+                            <li class="fb">
+                                <a class="like"
+                                   data-href="{{ route('news.like', ['newsId' => $article -> news_id]) }}">
+                                    <i id="like-button-icon" class="fa icon-thumbs-down2"
+                                       style="margin-right:0"></i>
+                                    <span class="mb-pt-hide">Dislike</span>
+                                </a>
+                            </li>
+                        @endif
+                    </ul>
+                </div>
+                <div class="category-content no-padding-bottom text-right col-lg-10">
+                    <ul class="list-inline no-margin">
+                        <li>
+                            <a class="btn bg-indigo btn-icon content-group">
+                                <i class="icon-facebook"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="btn bg-danger btn-icon content-group">
+                                <i class="icon-youtube3"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="btn bg-info btn-icon content-group">
+                                <i class="icon-twitter"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="btn bg-danger btn-icon content-group">
+                                <i class="icon-google-plus"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
 
 
     <!-- About author -->

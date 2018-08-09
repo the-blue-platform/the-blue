@@ -10,11 +10,14 @@ namespace Blue\Repository\News;
 
 
 use Blue\Domain\News\News;
+use Blue\Entity\News\NewsEntity;
+use Blue\Repository\Comment\CommentMapper;
+use Blue\Repository\Like\LikeMappner;
 
 class NewsMapper
 {
 
-    public static function map($newsEntity)
+    public static function map(NewsEntity $newsEntity)
     {
         return new News(
             $newsEntity->news_id,
@@ -24,6 +27,9 @@ class NewsMapper
             $newsEntity->link,
             $newsEntity->image,
             $newsEntity->tag,
-            $newsEntity->publish_date);
+            $newsEntity->publish_date,
+            LikeMappner::mapList($newsEntity->likes()->get()),
+            CommentMapper::mapList($newsEntity->comments()->get())
+        );
     }
 }

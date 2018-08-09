@@ -8,14 +8,14 @@ $(document).on("click", ".like", function () {
         method: "POST",
         url: url,
         data: {_token: token}
-    }).success(function (data) {
+    }).done(function (data) {
         $("#likes").text(data.like_num);
         if (type === "Like") {
             $(".mb-pt-hide").text("Dislike");
-            $("#like-button-icon").removeClass('fa li_like').addClass('fa fa-thumbs-o-down');
+            $("#like-button-icon").removeClass('fa li_like').addClass('fa icon-thumbs-down2');
         } else {
             $(".mb-pt-hide").text("Like");
-            $("#like-button-icon").removeClass('fa fa-thumbs-o-down').addClass('fa li_like');
+            $("#like-button-icon").removeClass('fa icon-thumbs-down2').addClass('fa li_like');
         }
     });
 });
