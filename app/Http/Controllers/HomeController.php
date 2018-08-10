@@ -20,14 +20,16 @@ class HomeController extends Controller
         $headline = new News();
         $newsRepository = new NewsRepository();
 
+//        dd($newsRepository->getBusinessNews());
+
         $recommendation = $newsRepository->getRecommendationNews();
         return view('home2')
             ->with('headline', $newsRepository->getHeadlineNews())
             ->with('trending_news', $headline->getTrendingNews())
             ->with('recommendation', $recommendation)
-            ->with('technology', $headline->getTechnologyNews())
-            ->with('business', $headline->getBusinessNews())
-            ->with('science', $headline->getScienceNews());
+            ->with('technology', $newsRepository->getTechnologyNews())
+            ->with('business', $newsRepository->getBusinessNews())
+            ->with('science', $newsRepository->getScienceNews());
     }
 
     public function getTrendingPost()

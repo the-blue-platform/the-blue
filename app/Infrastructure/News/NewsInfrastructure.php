@@ -52,4 +52,55 @@ class NewsInfrastructure
 
         return $news->unique('news_id')->take(4);
     }
+
+    public function getTechnologyNews()
+    {
+        $date = new Carbon();
+        $date->subWeek();
+
+        $news = $this->newsEntity->join('view', 'view.news_id', '=', 'news.news_id')
+            ->join('comment', 'comment.news_id', '=', 'news.news_id')
+            ->where('publish_date', '>', $date->toDateTimeString())
+            ->where('supplier_id', '10')
+            ->orderBy("view.view", "desc")
+            ->select('news.news_id', 'news.supplier_id', 'news.title', 'news.content', 'news.image',
+                'news.publish_date')
+            ->get();
+
+        return $news->unique('news_id')->take(4);
+    }
+
+    public function getBusinessNews()
+    {
+        $date = new Carbon();
+        $date->subWeek();
+
+        $news = $this->newsEntity->join('view', 'view.news_id', '=', 'news.news_id')
+            ->join('comment', 'comment.news_id', '=', 'news.news_id')
+            ->where('news.publish_date', '>', $date->toDateTimeString())
+            ->where('news.supplier_id', '4')
+            ->orderBy("view.view", "desc")
+            ->select('news.news_id', 'news.supplier_id', 'news.title', 'news.content', 'news.image',
+                'news.publish_date')
+            ->get();
+
+        return $news->unique('news_id')->take(4);
+    }
+
+    public function getScienceNews()
+    {
+        $date = new Carbon();
+        $date->subWeek();
+
+        $news = $this->newsEntity->join('view', 'view.news_id', '=', 'news.news_id')
+            ->crossJoin('comment', 'comment.news_id', '=', 'news.news_id')
+            ->where('publish_date', '>', $date->toDateTimeString())
+            ->where('supplier_id', '5')
+            ->orderBy("view.view", "desc")
+            ->select('news.news_id', 'news.supplier_id', 'news.title', 'news.content', 'news.image',
+                'news.publish_date')
+            ->get();
+
+        return $news->unique('news_id')->take(4);
+    }
 }

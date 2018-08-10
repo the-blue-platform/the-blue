@@ -23,7 +23,7 @@ class CommentMapper
             $commentEntity->news_id,
             $commentEntity->parent_id,
             $commentEntity->body,
-            $commentEntity->created_date
+            $commentEntity->created_at
         );
     }
 

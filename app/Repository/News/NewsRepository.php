@@ -59,4 +59,54 @@ class NewsRepository
 
         return $recommendationNews;
     }
+
+    public function getTechnologyNews()
+    {
+        $newsEntities = $this->newsInfrastructure->getTechnologyNews();
+
+        $recommendationNews = [];
+        foreach ($newsEntities as $news) {
+            $userComment = $this->userInfrastructure->findById($news->comments()->first()->user_id);
+            $userLikes = $this->userInfrastructure->findByIdList($news->likes()->select('user_id')->get());
+            $comment = $this->commentInfrastructure->findByUserIdAndNewsId($userComment->id, $news->news_id);
+
+            array_push($recommendationNews,
+                NewsMapper::mapRecommendationNews($news, $userComment, $userLikes, $comment));
+        }
+
+        return $recommendationNews;
+    }
+
+    public function getBusinessNews()
+    {
+        $newsEntities = $this->newsInfrastructure->getBusinessNews();
+        $recommendationNews = [];
+        foreach ($newsEntities as $news) {
+            $userComment = $this->userInfrastructure->findById($news->comments()->first()->user_id);
+            $userLikes = $this->userInfrastructure->findByIdList($news->likes()->select('user_id')->get());
+            $comment = $this->commentInfrastructure->findByUserIdAndNewsId($userComment->id, $news->news_id);
+
+            array_push($recommendationNews,
+                NewsMapper::mapRecommendationNews($news, $userComment, $userLikes, $comment));
+        }
+
+        return $recommendationNews;
+    }
+
+    public function getScienceNews()
+    {
+        $newsEntities = $this->newsInfrastructure->getScienceNews();
+
+        $recommendationNews = [];
+        foreach ($newsEntities as $news) {
+            $userComment = $this->userInfrastructure->findById($news->comments()->first()->user_id);
+            $userLikes = $this->userInfrastructure->findByIdList($news->likes()->select('user_id')->get());
+            $comment = $this->commentInfrastructure->findByUserIdAndNewsId($userComment->id, $news->news_id);
+
+            array_push($recommendationNews,
+                NewsMapper::mapRecommendationNews($news, $userComment, $userLikes, $comment));
+        }
+
+        return $recommendationNews;
+    }
 }

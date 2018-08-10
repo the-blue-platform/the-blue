@@ -1,6 +1,6 @@
 <li class="media main-comment comment-{{$comment->id}}">
     <div class="media-left">
-        <a href="#"><img src="/images/users/face1.jpg"
+        <a href="#"><img src="{{$comment -> user -> avatar}}"
                          class="img-circle img-sm" alt=""></a>
     </div>
 

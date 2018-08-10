@@ -1,6 +1,6 @@
 <div class="media">
     <div class="media-left">
-        <a href="#"><img src="/images/users/face9.jpg"
+        <a href="#"><img src="{{$subComment -> user -> getName()}}"
                          class="img-circle img-sm" alt=""></a>
     </div>
 

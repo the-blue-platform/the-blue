@@ -5,7 +5,7 @@
             <a href="{{ route('user', ['userId' => Auth::user() ->id]) }}" class="user_avatar media-left"><img src="{{ Auth::user()->avatar }}"
                                                             class="img-circle img-sm" alt=""></a>
             <div class="media-body">
-                <span class="media-heading text-semibold">Trung Vu</span>
+                <span class="media-heading text-semibold">{{Auth::user() -> getName()}}</span>
                 <div class="text-size-mini text-muted">
                     <i class="icon-pin text-size-small"></i> &nbsp;{{Auth::user() -> location}}
                 </div>
