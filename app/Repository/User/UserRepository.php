@@ -32,4 +32,9 @@ class UserRepository
 
         return $userEntity ? UserMapper::map($userEntity) : null;
     }
+
+    public function findByUserIdList($userIdList)
+    {
+        return UserMapper::mapList($userEntity = $this->userInfrastructure->findByIdList($userIdList));
+    }
 }

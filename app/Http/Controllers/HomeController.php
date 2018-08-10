@@ -9,9 +9,9 @@
 namespace Blue\Http\Controllers;
 
 
+use Blue\Application\Notification\NotificationApplication;
 use Blue\Models\News;
 use Blue\Repository\News\NewsRepository;
-use Blue\Repository\User\UserRepository;
 
 class HomeController extends Controller
 {
@@ -19,17 +19,19 @@ class HomeController extends Controller
     {
         $headline = new News();
         $newsRepository = new NewsRepository();
-
-//        dd($newsRepository->getBusinessNews());
+        $notificationApplication = new NotificationApplication();
 
         $recommendation = $newsRepository->getRecommendationNews();
+        $notifications = $notificationApplication->getNotification();
+
         return view('home2')
             ->with('headline', $newsRepository->getHeadlineNews())
             ->with('trending_news', $headline->getTrendingNews())
             ->with('recommendation', $recommendation)
             ->with('technology', $newsRepository->getTechnologyNews())
             ->with('business', $newsRepository->getBusinessNews())
-            ->with('science', $newsRepository->getScienceNews());
+            ->with('science', $newsRepository->getScienceNews())
+            ->with('notifications', $notifications);
     }
 
     public function getTrendingPost()

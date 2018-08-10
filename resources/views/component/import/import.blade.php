@@ -17,3 +17,4 @@
 <script src="/js/plugins/loaders/blockui.min.js"></script>
 
 <script src="/js/app.js"></script>
+<script src="https://js.pusher.com/4.2/pusher.min.js"></script>

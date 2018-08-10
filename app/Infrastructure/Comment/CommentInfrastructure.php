@@ -27,4 +27,9 @@ class CommentInfrastructure
     {
         return $this->commentEntity->where('user_id', $userId)->where('news_id', $newsId)->first();
     }
+
+    public function findById($id)
+    {
+        return $this->commentEntity->find($id);
+    }
 }

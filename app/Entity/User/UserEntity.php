@@ -16,4 +16,8 @@ class UserEntity extends Model
     protected $table = 'users';
     protected $connection = 'mysql_user';
 
+    public function notification()
+    {
+        return $this->hasOne('Blue\Entity\Notification\NotificationEntity');
+    }
 }

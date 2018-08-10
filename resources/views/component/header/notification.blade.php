@@ -1,8 +1,8 @@
-<li class="dropdown">
+<li class="dropdown dropdown-notifications">
     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
         <i class="icon-bubbles4"></i>
         <span class="visible-xs-inline-block position-right">Messages</span>
-        <span class="badge bg-warning-400">2</span>
+        <span class="badge bg-warning-400 notification-count">{{count($notifications)}}</span>
     </a>
 
     <div class="dropdown-menu dropdown-content width-350">
@@ -14,37 +14,23 @@
         </div>
 
         <ul class="media-list dropdown-content-body">
-            <li class="media">
-                <div class="media-left">
-                    <img src="/images/users/face10.jpg" class="img-circle img-sm" alt="">
-                    <span class="badge bg-danger-400 media-badge">5</span>
-                </div>
 
-                <div class="media-body">
-                    <a href="#" class="media-heading">
-                        <span class="text-semibold">James Alexander</span>
-                        <span class="media-annotation pull-right">04:58</span>
-                    </a>
+            @foreach($notifications as $notification)
+                <li class="media">
+                    <div class="media-left">
+                        <img src="{{$notification -> avatar}}" class="img-circle img-sm" alt="">
+                    </div>
 
-                    <span class="text-muted">who knows, maybe that would be the best thing for me...</span>
-                </div>
-            </li>
+                    <div class="media-body">
+                        <a href="{{ route('user', ['userId' => $notification -> userId]) }}" class="media-heading">
+                            <span class="text-semibold">{{$notification -> name}}</span>
+                            <span class="media-annotation pull-right">{{\Illuminate\Support\Carbon::parse($notification -> date)->diffForHumans()}}</span>
+                        </a>
 
-            <li class="media">
-                <div class="media-left">
-                    <img src="/images/users/face3.jpg" class="img-circle img-sm" alt="">
-                    <span class="badge bg-danger-400 media-badge">4</span>
-                </div>
-
-                <div class="media-body">
-                    <a href="#" class="media-heading">
-                        <span class="text-semibold">Margo Baker</span>
-                        <span class="media-annotation pull-right">12:16</span>
-                    </a>
-
-                    <span class="text-muted">That was something he was unable to do because...</span>
-                </div>
-            </li>
+                        <span class="text-muted">{{$notification -> content}}</span>
+                    </div>
+                </li>
+            @endforeach
         </ul>
 
         <div class="dropdown-content-footer">
@@ -53,3 +39,4 @@
         </div>
     </div>
 </li>
+<script src="/js/event/like-notification.js"></script>

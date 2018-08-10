@@ -9,6 +9,7 @@
 namespace Blue\Http\Controllers\News;
 
 
+use Blue\Application\Notification\NotificationApplication;
 use Blue\Http\Controllers\Controller;
 use Blue\Models\File;
 use Blue\Models\News;
@@ -22,6 +23,7 @@ class NewsController extends Controller
         $news = new News();
         $supplier = new Supplier();
         $article = $news->getById($newsId);
+        $notificationApplication = new NotificationApplication();
 
         if (!$article) {
             return redirect()->back();
@@ -51,7 +53,8 @@ class NewsController extends Controller
             ->with('likes', $likes)
             ->with('commentLikes', $commentLikes)
             ->with('trending_news', $trending_news)
-            ->with('relatedNews', $relatedNews);
+            ->with('relatedNews', $relatedNews)
+            ->with('notifications', $notificationApplication->getNotification());
     }
 
     public function getLatestNews($supplier_id)
