@@ -34,7 +34,7 @@ class CommentController extends Controller
         ])->user()->associate(Auth::user());
 
         return response()->json([
-            "view" => View::make("component.comment.news-comment-block")
+            "view" => View::make("component.news.news-comment")
                 ->with('comment', $comment)
                 ->with("subComments", [])
                 ->with("article", $news)

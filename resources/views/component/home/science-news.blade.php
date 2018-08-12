@@ -1,45 +1,47 @@
-<div class="trend-pst">
-    <div class="pst-block">
-        <div class="pst-block-head">
-            <h2 class="title-4">Science</h2>
-        </div>
-        <div class="pst-block-main">
-            <div class="col-row">
-                @foreach($science as $news)
-                    <div class="col-one-quarter" style="background-color: #ffffff; border: none !important;">
-                        <article class="post post-tp-4">
-                            <figure style="background-color: #ffffff;">
-                                <a href="{{ route('news', ['newsId' => $news -> news_id]) }}">
-                                    <img src="{{$news ->image}}"
-                                         height="186" width="260" class="adaptive"/>
-                                </a>
-                                <div class="ptp-4-overlay">
-                                    <div class="ptp-4-data">
-                                        <a>
-                                            <i class="li_like"></i>{{$news -> likes() -> count()}}
-                                        </a>
-                                        <a>
-                                            <i class="li_eye"></i>{{$news -> views()}}
-                                        </a>
-                                    </div>
-                                </div>
-                            </figure>
-                            <h3 class="title-3">
-                                <a href="{{ route('news', ['newsId' => $news -> news_id]) }}">{{$news ->title}}</a>
-                            </h3>
-                            <div class="meta-tp-2">
-                                <div class="date"><span>{{$news ->publish_date}}</span></div>
-                                <div class="category">
-                                    <a href=""><i class="li_pen"></i><span>{{$news ->tag}}</span></a>
-                                </div>
-                            </div>
-                        </article>
+<div class="table-responsive" style="height: 492px">
+    @foreach($science as $news)
+        <div class="thumbnail col-lg-3" style="padding-left: 8px; padding-right: 8px; height: 438px">
+            <div class="thumb" style="height: 173px; overflow: hidden">
+                <a href="{{ route('news', ['newsId' => $news -> id]) }}">
+                    <img src="{{$news ->image}}" style="height: 100%">
+                </a>
+            </div>
+
+            <div class="caption">
+                <a href="{{ route('news', ['newsId' => $news -> id]) }}">
+                    <h6 class="text-semibold no-margin"
+                        style="color: black; height: 46px">{{ str_limit($news -> title, $limit = 60, $end = '...') }}</h6>
+                </a>
+                <p class="text-muted mb-15 mt-5"
+                   style="height: 20px">{{\Illuminate\Support\Carbon::parse($news -> publishDate)->diffForHumans()}}</p>
+                @if($news ->commentUser)
+                    <div class="media" style="height: 102px">
+                        <div class="media-left">
+                            <img src="{{$news ->commentUser -> avatar}}" class="img-circle img-sm">
+                        </div>
+
+                        <div class="media-body">
+                            <a href="{{ route('user', ['userId' => $news ->commentUser ->id]) }}" class="media-heading">
+                                <span class="text-blue"><strong>{{$news -> getCommentUserName()}}</strong></span>
+                                <span class="media-annotation pull-right">{{\Illuminate\Support\Carbon::parse($news ->comment -> createdDate)->diffForHumans()}}</span>
+                            </a>
+
+                            <span class="text-muted">{{ str_limit($news -> getComment(), $limit = 90, $end = '...') }}</span>
+                        </div>
                     </div>
-                @endforeach
+                @endif
+                @if(count($news ->likeUsers) != 0)
+                    <ul class="list-inline list-inline-condensed no-margin-bottom mt-15"
+                        style="bottom: 0; position: absolute">
+                        @foreach(array_slice($news -> likeUsers, 0, 5) as $u)
+                            <li style="float: left"><a href="{{ route('user', ['userId' => $u ->id]) }}"><img
+                                            src="{{$u -> avatar}}" class="img-circle img-xs"
+                                            alt=""></a></li>
+                        @endforeach
+                        <li><h6>{{count($news ->likeUsers)}} Likes</h6></li>
+                    </ul>
+                @endif
             </div>
         </div>
-        <div class="pst-block-foot">
-            <a href="#">Show more</a>
-        </div>
-    </div>
+    @endforeach
 </div>

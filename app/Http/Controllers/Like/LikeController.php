@@ -9,10 +9,13 @@
 namespace Blue\Http\Controllers\Like;
 
 
+use Blue\Application\Notification\NotificationApplication;
+use Blue\Events\LikeEvent;
 use Blue\Http\Controllers\Controller;
 use Blue\Models\Like;
 use Blue\Models\News;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Event;
 
 class LikeController extends Controller
 {
@@ -35,7 +38,6 @@ class LikeController extends Controller
         }
 
         $likeNum = $news->likes()->count();
-
         return response()->json([
             'status' => 'OK',
             "like_num" => $likeNum
@@ -46,6 +48,7 @@ class LikeController extends Controller
     {
         $news = News::find($newsId);
         $like = new Like();
+        $notificationApplication = new NotificationApplication();
 
         if (!$news) {
             return redirect()->back();
@@ -59,6 +62,9 @@ class LikeController extends Controller
                 'news_id' => $newsId,
                 'comment_id' => $commentId,
             ])->user()->associate(Auth::user());
+
+            $notification = $notificationApplication->storeNotification($commentId);
+            Event::fire(new LikeEvent($notification));
         }
 
         return response()->json([

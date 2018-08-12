@@ -156,7 +156,7 @@ return [
          */
         Blue\Providers\AppServiceProvider::class,
         Blue\Providers\AuthServiceProvider::class,
-        // Blue\Providers\BroadcastServiceProvider::class,
+        Blue\Providers\BroadcastServiceProvider::class,
         Blue\Providers\EventServiceProvider::class,
         Blue\Providers\RouteServiceProvider::class,
 

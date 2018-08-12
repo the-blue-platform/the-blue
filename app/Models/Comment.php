@@ -27,7 +27,7 @@ class Comment extends Model
 
     public function getComments($newsId)
     {
-        return $this->where("news_id", $newsId)->where('parent_id', null)->orderBy('created_at', 'desc')->get();
+        return $this->where("news_id", $newsId)->where('parent_id', null)->get();
     }
 
     public function getSubComments($newsId)

@@ -119,3 +119,34 @@ Route::get('/supplier/supplier/update/{resourceId}/{tag}', [
     'uses' => 'Supplier\SupplierController@getPopularNews',
     'as' => 'supplier.update',
 ]);
+
+
+/**
+ * User page
+ */
+Route::get('/user/{userId}', [
+    'uses' => 'User\UserController@index',
+    'as' => 'user',
+]);
+
+Route::post('/user/follow/{userId}', [
+    'uses' => 'User\UserController@follow',
+    'as' => 'user.follow',
+]);
+
+Route::post('/user/profile', 'User\UserController@updateAvatar');
+
+Route::get('/notifications', [
+    'uses' => 'Notification\NotificationController@notifications',
+    'as' => 'notifications',
+]);
+
+
+/**
+ * Post
+ */
+Route::post('/user/post', [
+    'uses' => 'Post\PostController@store',
+    'as' => 'user.post',
+    'middleware' => ['auth'],
+]);

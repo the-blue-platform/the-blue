@@ -1,4 +1,4 @@
-@extends('component.home.default')
+@extends('component.base.base')
 
 <style>
     .news-content img {
@@ -7,158 +7,133 @@
     }
 </style>
 @section('content')
-    <div class="content">
-        <div class="main">
-            <div class="main-content">
-                <div class="section">
-                    <div class="row">
-                        <div class="content">
-                            <br>
-                            <div class="pst-block">
-                                <div class="shop">
-                                    <div class="pst-block-main">
-                                        <div class="post-content">
-                                            <div class="shop-product-block">
-                                                <div class="product-description">
-                                                    <div class="title-blc-3">
-                                                        <h2>{{$article -> title}}</h2>
-                                                    </div>
-                                                    <div class="news-content">
-                                                        {!! $content !!}
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="sharing-block">
-                                <div class="sharing-title">Like this news?</div>
-                                <div class="post-sharing-tp-2">
-                                    <ul>
-                                        @if(!Auth::user() || !Auth::user() -> isNewsLiked($article -> news_id))
-                                            <li class="fb">
-                                                <a class="like"
-                                                   data-href="{{ route('news.like', ['newsId' => $article -> news_id]) }}">
-                                                    <i id="like-button-icon" class="fa li_like"
-                                                       style="margin-right:0"></i>
-                                                    <span class="mb-pt-hide">Like</span>
-                                                </a>
-                                            </li>
-                                        @else
-                                            <li class="fb">
-                                                <a class="like"
-                                                   data-href="{{ route('news.like', ['newsId' => $article -> news_id]) }}">
-                                                    <i id="like-button-icon" class="fa fa-thumbs-o-down"
-                                                       style="margin-right:0"></i>
-                                                    <span class="mb-pt-hide">Dislike</span>
-                                                </a>
-                                            </li>
-                                        @endif
-                                        <li class="fb">
-                                            <a class="save"
-                                               data-href="#">
-                                                <i id="save-button-icon" class="fa li_note"
-                                                   style="margin-right:0"></i>
-                                                <span class="read-later">Read later</span>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                    <div class="comments" style="padding-left: 10px">
-                                        <i class="li_bubble"></i> <span
-                                                id="views">{{$comments -> count() + $subComments -> count()}}</span>
-                                        Comments
-                                    </div>
-                                    <div class="comments" style="padding-left: 10px">
-                                        <i class="li_like"></i><span
-                                                id="likes">{{$likes -> count()}}</span>
-                                        Likes
-                                    </div>
-                                    <div class="comments">
-                                        <i class="li_eye"></i>{{$article -> views()}}
-                                        Views
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="pst-box">
-                                <div class="pst-box-head">
-                                    <div class="title-blc-1">
-                                        <h4>Realted <span>Posts</span></h4>
-                                    </div>
-                                    <div class="navs js-pst-navs"></div>
-                                </div>
-                                <div class="pst-box-main">
-                                    <div class="pst-box-inner js-pst-block-2" data-slides="4">
-                                        @foreach($relatedNews as $news)
-                                            <div class="one-third">
-                                                <article class="post post-tp-30">
-                                                    <figure>
-                                                        <a href="{{ route('news', ['newsId' => $news -> news_id]) }}">
-                                                            <img src="{{$news->image}}"
-                                                                 height="173" width="255"
-                                                                 class="adaptive"/>
-                                                        </a>
-                                                        <div class="ptp-30-overlay">
-                                                            <div class="ptp-30-data">
-                                                                <a href="">
-                                                                    <i class="li_eye"></i>{{$news -> views()}}
-                                                                </a>
-                                                                <a href="">
-                                                                    <i class="li_bubble"></i>{{$news ->comments() -> count() + $news -> subComments() -> count()}}
-                                                                </a>
-                                                            </div>
-                                                        </div>
-                                                    </figure>
-                                                    <h3 class="title-6" style="font-size: 13px"><a
-                                                                href="{{ route('news', ['newsId' => $news -> news_id]) }}">{{$news -> title}}</a>
-                                                    </h3>
-                                                </article>
-                                            </div>
-                                        @endforeach
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="comments-block">
-                                <div class="title-blc-2">
-                                    <div class="title-blc-inner">
-                                        <h4>Comments</h4>
-                                    </div>
-                                </div>
-                                <div class="comments">
-                                    <ul class="comment-list">
-                                        <li class="comment" id="news-comment-box">
-                                            @include('component.comment.news-comment')
-                                        </li>
-                                        @foreach($comments as $comment)
-                                            @include('component.comment.news-comment-block')
-                                        @endforeach
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <aside class="side-bar">
-                            <div class="js-sidebar">
-                                <div class="cart-widget">
-                                    @include('component.supplier.supplier-block')
-                                </div>
-                                <div class="latest-products-widget">
-                                    <div class="pst-block">
-                                        <div class="pst-block-head">
-                                            <h2 class="title-4"><strong>Latest News</strong></h2>
-                                        </div>
-                                        <div id="latest-news">
-                                            @include('component.home.trending-news')
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </aside>
-                    </div>
+    <!-- Post -->
+    <div class="panel" style="padding-right: 50px; padding-left: 50px">
+        <div class="panel-body">
+            <div class="content-group-lg">
+                <h3 class="text-semibold mb-5">
+                    <a class="text-default">{{$article -> title}}</a>
+                </h3>
+
+                <ul class="list-inline list-inline-separate text-muted content-group">
+                    <li>By <a class="text-muted">{{$supplier -> name}}</a></li>
+                    <li>{{$article -> publish_date}}</li>
+                    <li><a class="text-muted"><i
+                                    class="li_eye text-size-base text-pink position-left"></i> {{$article -> views()}}
+                        </a></li>
+                    <li><a class="text-muted"><i
+                                    class="li_like text-size-base text-pink position-left"></i> <span id="likes">{{$likes -> count()}}</span>
+                        </a></li>
+                </ul>
+
+                <div class="content-group">
+                    {!! $content !!}
                 </div>
             </div>
         </div>
     </div>
-    <script src="/js/news/latest-news.js"></script>
+    <!-- /post -->
+
+    <div class="panel panel-flat" style="padding-right: 50px; padding-left: 50px">
+        <div class="sidebar-category">
+            <div class="category-title">
+                <span>Like this news?</span>
+                <ul class="icons-list">
+                    <li><a href="#" data-action="collapse"></a></li>
+                </ul>
+            </div>
+
+            <div class="row">
+                <div class="category-content no-padding-bottom text-left col-lg-2">
+                    <ul class="list-inline no-margin">
+                        @if(!Auth::user() || !Auth::user() -> isNewsLiked($article -> news_id))
+                            <li class="fb">
+                                <a class="like"
+                                   data-href="{{ route('news.like', ['newsId' => $article -> news_id]) }}">
+                                    <i id="like-button-icon" class="fa li_like"
+                                       style="margin-right:0"></i>
+                                    <span class="mb-pt-hide">Like</span>
+                                </a>
+                            </li>
+                        @else
+                            <li class="fb">
+                                <a class="like"
+                                   data-href="{{ route('news.like', ['newsId' => $article -> news_id]) }}">
+                                    <i id="like-button-icon" class="fa icon-thumbs-down2"
+                                       style="margin-right:0"></i>
+                                    <span class="mb-pt-hide">Dislike</span>
+                                </a>
+                            </li>
+                        @endif
+                    </ul>
+                </div>
+                <div class="category-content no-padding-bottom text-right col-lg-10">
+                    <ul class="list-inline no-margin">
+                        <li>
+                            <a class="btn bg-indigo btn-icon content-group">
+                                <i class="icon-facebook"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="btn bg-danger btn-icon content-group">
+                                <i class="icon-youtube3"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="btn bg-info btn-icon content-group">
+                                <i class="icon-twitter"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="btn bg-danger btn-icon content-group">
+                                <i class="icon-google-plus"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- About author -->
+    <div class="panel panel-flat" style="padding-right: 50px; padding-left: 50px">
+        @include('component.news.news-author')
+    </div>
+    <!-- /about author -->
+
+    <!-- Comments -->
+    <div class="panel panel-flat" style="padding-right: 50px; padding-left: 50px">
+        <div class="panel-heading">
+            <h5 class="panel-title text-semiold"><i class="icon-bubbles4 position-left"></i> Comments</h5>
+            <div class="heading-elements">
+                <ul class="list-inline list-inline-separate heading-text text-muted">
+                    <li><span id="views">{{$comments -> count() + $subComments -> count()}}</span> comments</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="panel-body">
+            <ul class="media-list stack-media-on-mobile">
+                @foreach($comments as $comment)
+                    @include('component.news.news-comment')
+                @endforeach
+            </ul>
+        </div>
+
+        <hr class="no-margin">
+
+        @include('component.news.comment-action')
+    </div>
+    <!-- /comments -->
+    {{--<script src="/js/news/latest-news.js"></script>--}}
     <script src="/js/like/like.js"></script>
     <script src="/js/comment/comment.js"></script>
+@stop
+@section('extend')
+    <!-- Opposite sidebar -->
+    <div class="sidebar sidebar-opposite sidebar-default sidebar-separate">
+        @include('component.news.news-sidebar')
+    </div>
+    <!-- /opposite sidebar -->
 @stop

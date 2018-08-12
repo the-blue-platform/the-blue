@@ -11,14 +11,15 @@ namespace Blue\Domain\News;
 
 class News
 {
-    private $id;
-    private $supplierId;
-    private $title;
-    private $content;
-    private $link;
-    private $image;
-    private $tag;
-    private $publishDate;
+    public $id;
+    public $supplierId;
+    public $title;
+    public $content;
+    public $link;
+    public $image;
+    public $tag;
+    public $publishDate;
+
 
     /**
      * News constructor.
@@ -30,9 +31,19 @@ class News
      * @param $image
      * @param $tag
      * @param $publishDate
+     * @param $likes
+     * @param $comments
      */
-    public function __construct($id, $supplierId, $title, $content, $link, $image, $tag, $publishDate)
-    {
+    public function __construct(
+        $id,
+        $supplierId,
+        $title,
+        $content,
+        $link,
+        $image,
+        $tag,
+        $publishDate
+    ) {
         $this->id = $id;
         $this->supplierId = $supplierId;
         $this->title = $title;
@@ -41,69 +52,5 @@ class News
         $this->image = $image;
         $this->tag = $tag;
         $this->publishDate = $publishDate;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getSupplierId()
-    {
-        return $this->supplierId;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getTitle()
-    {
-        return $this->title;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getContent()
-    {
-        return $this->content;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getLink()
-    {
-        return $this->link;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getImage()
-    {
-        return $this->image;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getTag()
-    {
-        return $this->tag;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getPublishDate()
-    {
-        return $this->publishDate;
     }
 }

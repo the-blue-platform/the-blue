@@ -13,11 +13,17 @@ class User extends Authenticatable
     protected $connection = 'mysql_user';
 
     protected $fillable = [
-        'email', 'password', 'first_name', 'last_name', 'location',
+        'email',
+        'password',
+        'first_name',
+        'last_name',
+        'location',
+        'work',
     ];
 
     protected $hidden = [
-        'password', 'remember_token',
+        'password',
+        'remember_token',
     ];
 
     public function getName()
@@ -35,5 +41,27 @@ class User extends Authenticatable
     {
         $like = new Like();
         return $like->isCommentLikedByUser($this->id, $newsId, $commentId) == null ? false : true;
+    }
+
+    public function isFollowing($userId)
+    {
+        return (boolean)$this->follows()->where('follows_id', $userId)->first();
+    }
+
+    public function followers()
+    {
+        return $this->belongsToMany(self::class, 'followers', 'follows_id', 'user_id')
+            ->withTimestamps();
+    }
+
+    public function follows()
+    {
+        return $this->belongsToMany(self::class, 'followers', 'user_id', 'follows_id')
+            ->withTimestamps();
+    }
+
+    public function posts()
+    {
+        return $this->hasMany(PostEntity::class);
     }
 }
