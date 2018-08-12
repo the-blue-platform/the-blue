@@ -10,6 +10,8 @@ namespace Blue\Infrastructure\Notification;
 
 
 use Blue\Entity\Notification\NotificationEntity;
+use Blue\Infrastructure\User\UserInfrastructure;
+use Illuminate\Support\Facades\Auth;
 
 class NotificationInfrastructure
 {
@@ -36,5 +38,12 @@ class NotificationInfrastructure
     public function findByUserId($userId)
     {
         return $this->notificationEntity->where('user_id', $userId)->orderBy("created_at", "desc")->get();
+    }
+
+    public function notifications()
+    {
+        $userInfra = new UserInfrastructure();
+        $user = $userInfra->findById(Auth::user()->id);
+        return $user->unreadNotifications()->get()->toArray();
     }
 }

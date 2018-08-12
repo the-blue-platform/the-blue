@@ -129,4 +129,24 @@ Route::get('/user/{userId}', [
     'as' => 'user',
 ]);
 
+Route::post('/user/follow/{userId}', [
+    'uses' => 'User\UserController@follow',
+    'as' => 'user.follow',
+]);
+
 Route::post('/user/profile', 'User\UserController@updateAvatar');
+
+Route::get('/notifications', [
+    'uses' => 'Notification\NotificationController@notifications',
+    'as' => 'notifications',
+]);
+
+
+/**
+ * Post
+ */
+Route::post('/user/post', [
+    'uses' => 'Post\PostController@store',
+    'as' => 'user.post',
+    'middleware' => ['auth'],
+]);

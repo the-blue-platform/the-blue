@@ -54,4 +54,14 @@ class NotificationApplication
         $this->notificationRepository->save($notification);
         return NotificationDataMapper::mapDomainToData($notification);
     }
+
+    public function sendNotification($userId, $follower)
+    {
+        $this->notificationRepository->sendNotification($userId, $follower);
+    }
+
+    public function notifications()
+    {
+        return $this->notificationRepository->notifications();
+    }
 }

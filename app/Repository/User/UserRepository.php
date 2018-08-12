@@ -10,7 +10,6 @@ namespace Blue\Repository\User;
 
 
 use Blue\Infrastructure\User\UserInfrastructure;
-use phpDocumentor\Reflection\Types\Null_;
 
 class UserRepository
 {
@@ -36,5 +35,20 @@ class UserRepository
     public function findByUserIdList($userIdList)
     {
         return UserMapper::mapList($userEntity = $this->userInfrastructure->findByIdList($userIdList));
+    }
+
+    public function follow($follows_id)
+    {
+        $this->userInfrastructure->follow($follows_id);
+    }
+
+    public function unfollow($follows_id)
+    {
+        $this->userInfrastructure->unfollow($follows_id);
+    }
+
+    public function isFollowing($userId)
+    {
+        return $this->userInfrastructure->isFollowing($userId);
     }
 }

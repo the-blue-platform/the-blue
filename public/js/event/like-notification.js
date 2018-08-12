@@ -1,36 +1,27 @@
 var notificationsWrapper = $('.dropdown-notifications');
 var notifications = notificationsWrapper.find('ul.dropdown-content-body');
 
-// if (notificationsCount <= 0) {
-//     notificationsWrapper.hide();
-// }
-
-// Enable pusher logging - don't include this in production
 Pusher.logToConsole = true;
 
-var pusher = new Pusher('60ce0a0836db757df76f', {
+const PUSHER_KEY = '60ce0a0836db757df76f';
+
+const NOTIFICATION_TYPES = {
+    newPost: 'Blue\\Notifications\\PostNotification'
+};
+
+window.Echo = new Echo({
+    broadcaster: 'pusher',
+    key: '60ce0a0836db757df76f',
     cluster: 'ap1',
-    encrypted: false
+    encrypted: true
 });
-var channel = pusher.subscribe('like-channel');
+$(document).ready(function () {
+    $.get('/notifications', function (data) {
+        // console.log(data);
+    });
 
-channel.bind('Blue\\Events\\LikeEvent', function (data) {
-    var existingNotifications = notifications.html();
-    var newNotificationHtml = `
-          <li class="media">
-                <div class="media-left">
-                    <img src="` + data.avatar + `" class="img-circle img-sm" alt="">
-                </div>
-
-                <div class="media-body">
-                    <a href="#" class="media-heading">
-                        <span class="text-semibold">` + data.name + `</span>
-                        <span class="media-annotation pull-right">` + data.date + `</span>
-                    </a>
-
-                    <span class="text-muted">` + data.content + `</span>
-                </div>
-            </li>
-        `;
-    notifications.html(newNotificationHtml + existingNotifications);
+    window.Echo.private(`Blue.Entity.User.UserEntity.7`)
+        .notification((notification) => {
+            addNotifications([notification], '#notifications');
+        });
 });

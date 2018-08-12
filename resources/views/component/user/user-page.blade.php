@@ -22,6 +22,25 @@
                     <li class="active"><a href="#activity" data-toggle="tab"><i class="icon-menu7 position-left"></i>
                             Activity</a></li>
                     <li><a href="#settings" data-toggle="tab"><i class="icon-cog3 position-left"></i> Settings</a></li>
+                    @if(Auth::user()->id != $user -> id)
+                        @if(!Auth::user() -> isFollowing($user -> id))
+                            <li>
+                                <a class="buttons follow-user"
+                                   data-href="{{ route('user.follow', ['userId' => $user -> id]) }}">
+                                    <i class="icon-user-plus position-left" id="follow-user"></i>
+                                    <span id="follow-text">Follow</span>
+                                </a>
+                            </li>
+                        @else
+                            <li>
+                                <a class="buttons follow-user"
+                                   data-href="{{ route('user.follow', ['userId' => $user -> id]) }}">
+                                    <i class="icon-user-minus position-left" id="follow-user"></i>
+                                    <span id="follow-text">Unfollow</span>
+                                </a>
+                            </li>
+                        @endif
+                    @endif
                 </ul>
 
                 <div class="navbar-right">
@@ -64,49 +83,14 @@
                                         <div class="timeline-icon">
                                             <img src="{{ $user -> avatar}}" alt="">
                                         </div>
-                                        <div class="panel panel-flat">
-                                            <div class="panel-heading">
-                                                <h6 class="panel-title">Share your thoughts</h6>
-                                                <div class="heading-elements">
-                                                    <ul class="icons-list">
-                                                        <li><a data-action="collapse"></a></li>
-                                                        <li><a data-action="reload"></a></li>
-                                                        <li><a data-action="close"></a></li>
-                                                    </ul>
-                                                </div>
-                                            </div>
+                                        <div class="post-action">
+                                            @include('component.user.post-action')
+                                        </div>
 
-                                            <div class="panel-body">
-                                                <form action="#">
-                                                    <div class="form-group">
-                                                        <textarea name="enter-message" class="form-control mb-15"
-                                                                  rows="3" cols="1"
-                                                                  placeholder="What's on your mind?"></textarea>
-                                                    </div>
-
-                                                    <div class="row">
-                                                        <div class="col-xs-6">
-                                                            <ul class="icons-list icons-list-extended mt-10">
-                                                                <li><a href="#" data-popup="tooltip" title="Add photo"
-                                                                       data-container="body"><i
-                                                                                class="icon-images2"></i></a></li>
-                                                                <li><a href="#" data-popup="tooltip" title="Add video"
-                                                                       data-container="body"><i class="icon-film2"></i></a>
-                                                                </li>
-                                                                <li><a href="#" data-popup="tooltip" title="Add event"
-                                                                       data-container="body"><i
-                                                                                class="icon-calendar2"></i></a></li>
-                                                            </ul>
-                                                        </div>
-
-                                                        <div class="col-xs-6 text-right">
-                                                            <button type="button"
-                                                                    class="btn btn-primary btn-labeled btn-labeled-right">
-                                                                Share <b><i class="icon-circle-right2"></i></b></button>
-                                                        </div>
-                                                    </div>
-                                                </form>
-                                            </div>
+                                        <div class="posts">
+                                            @foreach($posts as $post)
+                                                @include('component.user.post')
+                                            @endforeach
                                         </div>
 
                                         <div class="panel panel-flat timeline-content">
@@ -319,6 +303,8 @@
 
     </div>
     <!-- /main content -->
+    <script src="/js/post/post.js"></script>
+    <script src="/js/user/follow.js"></script>
 @stop
 @section('extend')
 @stop

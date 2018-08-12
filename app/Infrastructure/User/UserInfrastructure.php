@@ -9,12 +9,15 @@
 namespace Blue\Infrastructure\User;
 
 
+use Blue\Entity\Follower\FollowerEntity;
 use Blue\Entity\User\UserEntity;
+use Illuminate\Support\Facades\Auth;
 
 class UserInfrastructure
 {
 
     private $userEntity;
+    private $followerEntity;
 
     /**
      * UserInfrastructure constructor.
@@ -22,6 +25,7 @@ class UserInfrastructure
     public function __construct()
     {
         $this->userEntity = new UserEntity();
+        $this->followerEntity = new FollowerEntity();
     }
 
     public function findById($id)
@@ -32,5 +36,24 @@ class UserInfrastructure
     public function findByIdList($ids)
     {
         return $this->userEntity->whereIn('id', $ids)->get();
+    }
+
+    public function follow($userId)
+    {
+        $this->followerEntity->create([
+            'user_id' => Auth::user()->id,
+            'follows_id' => $userId,
+        ]);
+    }
+
+    public function unfollow($follows_id)
+    {
+        $this->followerEntity->where("user_id", Auth::user()->id)->where("follows_id", $follows_id)->delete();
+    }
+
+    public function isFollowing($follows_id)
+    {
+        return $this->followerEntity->where('user_id', Auth::user()->id)->where('follows_id',
+            $follows_id)->first();
     }
 }

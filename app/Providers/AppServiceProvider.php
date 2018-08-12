@@ -2,6 +2,8 @@
 
 namespace Blue\Providers;
 
+use Blue\Entity\Post\PostEntity;
+use Blue\Observers\Post\PostObserver;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -13,7 +15,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        PostEntity::observe(PostObserver::class);
     }
 
     /**

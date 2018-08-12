@@ -11,10 +11,13 @@ namespace Blue\Repository\Notification;
 
 use Blue\Domain\Notification\Notification;
 use Blue\Infrastructure\Notification\NotificationInfrastructure;
+use Blue\Infrastructure\User\UserInfrastructure;
+use Blue\Notifications\FollowedNotification;
 
 class NotificationRepository
 {
     private $notificationInfra;
+    private $userInfra;
 
     /**
      * NotificationRepository constructor.
@@ -22,6 +25,7 @@ class NotificationRepository
     public function __construct()
     {
         $this->notificationInfra = new NotificationInfrastructure();
+        $this->userInfra = new UserInfrastructure();
     }
 
     public function save(Notification $notification)
@@ -40,5 +44,16 @@ class NotificationRepository
         }
 
         return $results;
+    }
+
+    public function sendNotification($userId, $follower)
+    {
+        $user = $this->userInfra->findById($userId);
+        $user->notify(new FollowedNotification($follower));
+    }
+
+    public function notifications()
+    {
+        return $this->notificationInfra->notifications();
     }
 }

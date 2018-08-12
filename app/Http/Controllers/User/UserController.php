@@ -9,6 +9,9 @@
 namespace Blue\Http\Controllers\User;
 
 
+use Blue\Application\Notification\NotificationApplication;
+use Blue\Application\Post\PostApplication;
+use Blue\Application\User\UserApplication;
 use Blue\Http\Controllers\Controller;
 use Blue\Repository\User\UserRepository;
 use Illuminate\Http\Request;
@@ -21,12 +24,15 @@ class UserController extends Controller
     {
         $userRepository = new UserRepository();
         $user = $userRepository->findById($userId);
-
+        $notificationApplication = new NotificationApplication();
+        $postApplication = new PostApplication();
         if (!$user) {
             return redirect('/');
         }
         return view('component.user.user-page')
-            ->with('user', $user);
+            ->with('user', $user)
+            ->with('notifications', $notificationApplication->getNotification())
+            ->with('posts', $postApplication->getPosts($userId));
     }
 
     public function updateAvatar(Request $request)
@@ -53,5 +59,28 @@ class UserController extends Controller
         $user->save();
 
         return back();
+    }
+
+    public function follow($userId)
+    {
+        $userApplication = new UserApplication();
+        if ($userApplication->follow($userId)) {
+            return response()->json(
+                [
+                    'result' => 'FOLLOW'
+                ]
+            );
+        }
+
+        return response()->json(
+            [
+                'result' => 'UNFOLLOW'
+            ]
+        );
+    }
+
+    public function notifications()
+    {
+        return auth()->user()->unreadNotifications()->limit(5)->get()->toArray();
     }
 }
